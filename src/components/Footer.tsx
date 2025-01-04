@@ -60,7 +60,7 @@ export default function Footer() {
         
         <div className="mt-8 border-t border-gray-200 pt-8 text-center">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Gloport Photonix Innovations Pvt Ltd | © 2024 All Rights Reserved.
+            © {new Date().getFullYear()} Gloport Photonix Innovations Pvt Ltd | © 2025 All Rights Reserved.
           </p>
         </div>
       </div>
