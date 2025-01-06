@@ -581,7 +581,7 @@ export default function Home() {
           <div
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
             style={{
-              backgroundImage: "url('https://i.postimg.cc/pT1HKRmt/3.jpg')",
+              backgroundImage: "url('https://i.postimg.cc/jdHkCxnX/Sanjay1.jpg')",
             }}
           >
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
