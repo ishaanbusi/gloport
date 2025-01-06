@@ -23,7 +23,7 @@ export default function Footer() {
               {['Home', 'About', 'Services','Team','Contact Us'].map((item) => (
                 <li key={item}>
                   <Link
-                    to={`/${item.toLowerCase()}`}
+                    to={`/`}
                     className="text-gray-600 hover:text-indigo-600"
                   >
                     {item}

@@ -601,10 +601,10 @@ export default function Home() {
           <div
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
             style={{
-              backgroundImage: "url('https://i.postimg.cc/pT1HKRmt/3.jpg')",
+              backgroundImage: "url('https://i.postimg.cc/MT3QKQqL/Alok.jpg')",
             }}
           >
-            <div className="absolute inset-0 bg-[#3bd6c6] bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
               <h3 className="text-lg font-bold">ALOK VERMA</h3>
               <p className="text-2xl font-semibold">ADVISOR</p>
