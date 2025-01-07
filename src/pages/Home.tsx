@@ -524,14 +524,15 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-80 transition duration-500"></div>
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">KHALID KHAN </h3>
+              <h3 className="text-lg font-bold">DR. KHALID KHAN </h3>
               <p className="text-2xl font-semibold">FOUNDER & CHAIRMAN</p>
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
               <p className="text-lg text-center">
-                A visionary entrepreneur with over 30 years of leadership in
-                logistics and infrastructure, is the Founder and Chairman of
-                GloPort PhotoniX Innovations Pvt. Ltd.,
+                ⁠Dr. Khalid Khan is a reputed entrepreneur & philanthropist with
+                over four decades of experience of creating value across India &
+                abroad. He is Founder & Chairman of the Gloport group of
+                companies.
               </p>
             </div>
           </div>
@@ -539,7 +540,8 @@ export default function Home() {
           <div
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
             style={{
-              backgroundImage: "url('https://i.postimg.cc/fRVGPkr7/PHOTO-2019-07-24-10-01-41-jpg.jpg')",
+              backgroundImage:
+                "url('https://i.postimg.cc/fRVGPkr7/PHOTO-2019-07-24-10-01-41-jpg.jpg')",
             }}
           >
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
@@ -581,7 +583,8 @@ export default function Home() {
           <div
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
             style={{
-              backgroundImage: "url('https://i.postimg.cc/Ssxhd4HH/Whats-App-Image-2025-01-06-at-16-38-29.jpg')",
+              backgroundImage:
+                "url('https://i.postimg.cc/Ssxhd4HH/Whats-App-Image-2025-01-06-at-16-38-29.jpg')",
             }}
           >
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
@@ -606,7 +609,7 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">ALOK VERMA</h3>
+              <h3 className="text-lg font-bold">DR. ALOK VERMA</h3>
               <p className="text-2xl font-semibold">ADVISOR</p>
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
@@ -680,8 +683,10 @@ export default function Home() {
                 <MapPin className="h-6 w-6 text-[#3bd6c6]" />
                 <h3 className="text-lg font-bold text-gray-900">Address</h3>
                 <p className="text-gray-600">
-                  Gloport Photonix Floor 21, TTC Industrial Area, MIDC
-                  Industrial Area, Pawne, Navi Mumbai, Maharashtra 400705
+                  Gloport Photonix Innovations Pvt Ltd Office no: 2103 to 2106,
+                  Kamdhenu 23 West, TTC Industrial Area, MIDC Industrial Area,
+                  Pawne, Near MIDC Fire Brigade, Navi Mumbai, Maharashtra,
+                  400710 India
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
