@@ -518,6 +518,27 @@ export default function Home() {
           <div
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
             style={{
+              backgroundImage:
+                "url('https://i.postimg.cc/W1TXPLby/Whats-App-Image-2025-01-01-at-15-02-37.jpg')",
+            }}
+          >
+            <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-80 transition duration-500"></div>
+            <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
+              <h3 className="text-lg font-bold">KHALID KHAN </h3>
+              <p className="text-2xl font-semibold">FOUNDER & CHAIRMAN</p>
+            </div>
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
+              <p className="text-lg text-center">
+                A visionary entrepreneur with over 30 years of leadership in
+                logistics and infrastructure, is the Founder and Chairman of
+                GloPort PhotoniX Innovations Pvt. Ltd.,
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
+            style={{
               backgroundImage: "url('https://i.postimg.cc/fRVGPkr7/PHOTO-2019-07-24-10-01-41-jpg.jpg')",
             }}
           >
@@ -531,27 +552,6 @@ export default function Home() {
                 With a career spanning over 28 years, Abhijeet has excelled
                 across diverse sectors, including IT, Banking, Insurance,
                 Electronics, and Electric Vehicle (EV) subsystems.
-              </p>
-            </div>
-          </div>
-
-          <div
-            className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
-            style={{
-              backgroundImage:
-                "url('https://i.postimg.cc/W1TXPLby/Whats-App-Image-2025-01-01-at-15-02-37.jpg')",
-            }}
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-80 transition duration-500"></div>
-            <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">KHALID KHAN </h3>
-              <p className="text-2xl font-semibold">FOUNDER & COO</p>
-            </div>
-            <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
-              <p className="text-lg text-center">
-                A visionary entrepreneur with over 30 years of leadership in
-                logistics and infrastructure, is the Founder and Chairman of
-                GloPort PhotoniX Innovations Pvt. Ltd.,
               </p>
             </div>
           </div>
