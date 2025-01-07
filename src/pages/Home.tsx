@@ -518,7 +518,7 @@ export default function Home() {
           <div
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
             style={{
-              backgroundImage: "url('https://i.postimg.cc/pT1HKRmt/3.jpg')",
+              backgroundImage: "url('https://i.postimg.cc/fRVGPkr7/PHOTO-2019-07-24-10-01-41-jpg.jpg')",
             }}
           >
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
@@ -581,7 +581,7 @@ export default function Home() {
           <div
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
             style={{
-              backgroundImage: "url('https://i.postimg.cc/jdHkCxnX/Sanjay1.jpg')",
+              backgroundImage: "url('https://i.postimg.cc/bNVXL13N/Whats-App-Image-2025-01-06-at-14-17-44.jpg')",
             }}
           >
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
