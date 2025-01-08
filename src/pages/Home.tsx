@@ -546,7 +546,7 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">Mr. ABHIJEET THAKUR</h3>
+              <h3 className="text-lg font-bold">MR. ABHIJEET THAKUR</h3>
               <p className="text-2xl font-semibold">FOUNDER & CEO</p>
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
@@ -565,7 +565,7 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-80 transition duration-500"></div>
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">Mrs. BUSHRA KHAN</h3>
+              <h3 className="text-lg font-bold">MRS. BUSHRA KHAN</h3>
               <p className="text-2xl font-semibold">FOUNDER & CFO</p>
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
@@ -587,7 +587,7 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">Mr. SANJAY SINGH</h3>
+              <h3 className="text-lg font-bold">MR. SANJAY SINGH</h3>
               <p className="text-2xl font-semibold">FOUNDER & CBO</p>
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
@@ -681,7 +681,8 @@ export default function Home() {
                 <MapPin className="h-6 w-6 text-[#3bd6c6]" />
                 <h3 className="text-lg font-bold text-gray-900">Address</h3>
                 <p className="text-gray-600">
-                  Gloport Photonix Innovations Pvt Ltd Office no: 2103 to 2106,
+                  <span className="text-black">Gloport Photonix Innovations Pvt Ltd</span><br/>
+                  Office no: 2103 to 2106,
                   Kamdhenu 23 West, TTC Industrial Area, MIDC Industrial Area,
                   Pawne, Near MIDC Fire Brigade, Navi Mumbai, Maharashtra,
                   400710 India
@@ -690,12 +691,13 @@ export default function Home() {
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
                 <Phone className="h-6 w-6 text-[#3bd6c6]" />
                 <h3 className="text-lg font-bold text-gray-900">Phone</h3>
-                <p className="text-gray-600">+91 9920144752</p>
+                <p className="text-gray-900">+91 9920144752</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
                 <Mail className="h-6 w-6 text-[#3bd6c6]" />
                 <h3 className="text-lg font-bold text-gray-900">Email</h3>
-                <p className="text-gray-600">info@gloportphotonix.com</p>
+                <p className="text-gray-900">info@gloportphotonix.com</p>
+                <p className="text-grey-600">career@gloportphotonix.com</p>
               </div>
             </div>
           </div>
