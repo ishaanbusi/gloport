@@ -1,11 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const [activeTab, setActiveTab] = useState("");
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -18,8 +18,6 @@ export default function Navbar() {
     { name: "Team", href: "team" },
     { name: "Contact Us", href: "contact-us" },
   ];
-
-  const isActive = (path: string) => location.pathname === path;
 
   return (
     <nav className="bg-white shadow-lg fixed w-full z-10">
@@ -46,10 +44,14 @@ export default function Navbar() {
                 smooth={true}
                 duration={500}
                 className={`px-3 py-2 rounded-md text-sm font-medium ${
-                  isActive(item.href)
+                  activeTab === item.href
                     ? "text-gray-700 bg-[#00ffdf50]"
                     : "text-gray-700 hover:text-[#00ffdf] hover:bg-gray-50"
                 }`}
+                onClick={() => {
+                  setActiveTab(item.href);
+                  setIsOpen(false);
+                }}
               >
                 {item.name}
               </ScrollLink>
@@ -83,11 +85,14 @@ export default function Navbar() {
                 smooth={true}
                 duration={500}
                 className={`block px-3 py-2 text-base font-medium ${
-                  isActive(item.href)
+                  activeTab === item.href
                     ? "text-[#00ffdf] bg-[#00ffdf50]"
                     : "text-gray-700 hover:text-[#00ffdf] hover:bg-gray-50"
                 }`}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setActiveTab(item.href);
+                  setIsOpen(false);
+                }}
               >
                 {item.name}
               </ScrollLink>

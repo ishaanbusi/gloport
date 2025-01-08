@@ -551,9 +551,7 @@ export default function Home() {
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
               <p className="text-lg text-center">
-                With a career spanning over 28 years, Abhijeet has excelled
-                across diverse sectors, including IT, Banking, Insurance,
-                Electronics, and Electric Vehicle (EV) subsystems.
+              With a career spanning over 28 years, Abhijeet has excelled across diverse sectors, including IT, Banking, Cloud, AI, Insurance, Electronics, and Electric Vehicle (EV) subsystems.
               </p>
             </div>
           </div>
