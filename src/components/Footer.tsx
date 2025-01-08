@@ -20,13 +20,19 @@ export default function Footer() {
               Quick Links
             </h3>
             <ul className="mt-4 space-y-2">
-              {['Home', 'About', 'Services','Team','Contact Us'].map((item) => (
-                <li key={item}>
+              {[
+                { name: 'Home', href: 'home' },
+                { name: 'About', href: 'about' },
+                { name: 'Services', href: 'services' },
+                { name: 'Team', href: 'team' },
+                { name: 'Contact Us', href: 'contact-us' }
+              ].map(({ name, href }) => (
+                <li key={name}>
                   <Link
-                    to={`/`}
+                    to={`#${href}`}
                     className="text-gray-600 hover:text-indigo-600"
                   >
-                    {item}
+                    {name}
                   </Link>
                 </li>
               ))}

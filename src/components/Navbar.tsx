@@ -8,7 +8,7 @@ export default function Navbar() {
   const [activeTab, setActiveTab] = useState("");
 
   const navigation = [
-    { name: "Home", href: "/" },
+    { name: "Home", href: "home" },
     { name: "About", href: "about" },
     { name: "Solution", href: "services" },
     { name: "Mission", href: "mission" },
