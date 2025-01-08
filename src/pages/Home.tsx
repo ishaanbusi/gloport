@@ -546,7 +546,7 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">ABHIJEET THAKUR</h3>
+              <h3 className="text-lg font-bold">Mr. ABHIJEET THAKUR</h3>
               <p className="text-2xl font-semibold">FOUNDER & CEO</p>
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
@@ -565,7 +565,7 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-80 transition duration-500"></div>
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">BUSHRA KHAN</h3>
+              <h3 className="text-lg font-bold">Mrs. BUSHRA KHAN</h3>
               <p className="text-2xl font-semibold">FOUNDER & CFO</p>
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
@@ -587,7 +587,7 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">SANJAY SINGH</h3>
+              <h3 className="text-lg font-bold">Mr. SANJAY SINGH</h3>
               <p className="text-2xl font-semibold">FOUNDER & CBO</p>
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
