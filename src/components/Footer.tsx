@@ -23,7 +23,7 @@ export default function Footer() {
               {[
                 { name: 'Home', href: 'home' },
                 { name: 'About', href: 'about' },
-                { name: 'Services', href: 'services' },
+                { name: 'Solution', href: 'solution' },
                 { name: 'Team', href: 'team' },
                 { name: 'Contact Us', href: 'contact-us' }
               ].map(({ name, href }) => (
@@ -41,28 +41,30 @@ export default function Footer() {
           
 
           <div>
-            <h3 className="text-sm font-semibold text-gray-500 tracking-wider uppercase">
-              Connect With Us
-            </h3>
-            <div className="mt-4 flex space-x-4">
-              {[
-                { Icon: Facebook, label: 'Facebook' },
-                { Icon: Twitter, label: 'Twitter' },
-                { Icon: Instagram, label: 'Instagram' },
-                { Icon: Linkedin, label: 'LinkedIn' },
-              ].map(({ Icon, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  className="text-gray-500 hover:text-indigo-600"
-                  aria-label={label}
-                >
-                  <Icon className="h-6 w-6" />
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+  <h3 className="text-sm font-semibold text-gray-500 tracking-wider uppercase">
+    Connect With Us
+  </h3>
+  <div className="mt-4 flex space-x-4">
+    {[
+      { Icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61571180518799' },
+      { Icon: Twitter, label: 'Twitter', href: 'https://x.com/GloportPhotonix' },
+      { Icon: Instagram, label: 'Instagram', href: 'https://instagram.com/_gloport_photonix_' },
+      { Icon: Linkedin, label: 'LinkedIn', href: '#' },
+      { Icon: null, label: 'GloportPhotonix', href: 'https://linktr.ee/GloportPhotonix' }, // New link
+    ].map(({ Icon, label, href }) => (
+      <a
+        key={label}
+        href={href}
+        className="text-gray-500 hover:text-[#00ffdf]"
+        aria-label={label}
+      >
+        {Icon ? <Icon className="h-6 w-6" /> : <span>{label}</span>}
+      </a>
+    ))}
+  </div>
+</div>
+</div>
+
         
         <div className="mt-8 border-t border-gray-200 pt-8 text-center">
           <p className="text-gray-500 text-sm">
