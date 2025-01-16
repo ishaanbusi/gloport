@@ -551,7 +551,9 @@ export default function Home() {
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
               <p className="text-lg text-center">
-              With a career spanning over 28 years, Abhijeet has excelled across diverse sectors, including IT, Banking, Cloud, AI, Insurance, Electronics, and Electric Vehicle (EV) subsystems.
+                With a career spanning over 28 years, Abhijeet has excelled
+                across diverse sectors, including IT, Banking, Cloud, AI,
+                Insurance, Electronics, and Electric Vehicle (EV) subsystems.
               </p>
             </div>
           </div>
@@ -602,7 +604,8 @@ export default function Home() {
           <div
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
             style={{
-              backgroundImage: "url('https://i.postimg.cc/k4NhXryy/Whats-App-Image-2025-01-08-at-14-16-40.jpg')",
+              backgroundImage:
+                "url('https://i.postimg.cc/k4NhXryy/Whats-App-Image-2025-01-08-at-14-16-40.jpg')",
             }}
           >
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
@@ -679,13 +682,17 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
                 <MapPin className="h-6 w-6 text-[#3bd6c6]" />
-                <h3 className="text-lg font-bold text-gray-900">Address</h3>
+                <h3 className="text-lg font-bold text-gray-900">
+                  Corporate Office
+                </h3>
                 <p className="text-gray-600">
-                  <span className="text-black">Gloport Photonix Innovations Pvt Ltd</span><br/>
-                  Office no: 2103 to 2106,
-                  Kamdhenu 23 West, TTC Industrial Area, MIDC Industrial Area,
-                  Pawne, Near MIDC Fire Brigade, Navi Mumbai, Maharashtra,
-                  400710 India
+                  <span className="text-black">
+                    Gloport Photonix Innovations Pvt Ltd
+                  </span>
+                  <br />
+                  Office no: 2103 to 2106, Kamdhenu 23 West, TTC Industrial
+                  Area, MIDC Industrial Area, Pawne, Near MIDC Fire Brigade,
+                  Navi Mumbai, Maharashtra, 400710 India
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">

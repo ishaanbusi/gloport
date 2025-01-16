@@ -46,35 +46,35 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-gray-500 tracking-wider uppercase">
               Connect With Us
             </h3>
-            <div className="mt-4 flex space-x-4">
-              {[
-                {
-                  Icon: Facebook,
-                  label: "Facebook",
-                  href: "https://www.facebook.com/profile.php?id=61571180518799",
-                },
-                { Icon: X, label: "X", href: "https://x.com/GloportPhotonix" },
-                {
-                  Icon: Instagram,
-                  label: "Instagram",
-                  href: "https://instagram.com/_gloport_photonix_",
-                },
-                { Icon: Linkedin, label: "LinkedIn", href: "#" },
-                {
-                  Icon: null,
-                  label: "GloportPhotonix",
-                  href: "https://linktr.ee/GloportPhotonix",
-                }, // New link
-              ].map(({ Icon, label, href }) => (
+            <div className="mt-4">
+              {/* Social Media Icons */}
+              <div className="flex space-x-4">
+                {[
+                  { Icon: Facebook, label: "Facebook", href: "#" },
+                  { Icon: X, label: "X", href: "#" },
+                  { Icon: Instagram, label: "Instagram", href: "#" },
+                  { Icon: Linkedin, label: "LinkedIn", href: "#" },
+                ].map(({ Icon, label, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    className="text-gray-500 hover:text-[#00ffdf]"
+                    aria-label={label}
+                  >
+                    <Icon className="h-6 w-6" />
+                  </a>
+                ))}
+              </div>
+              {/* GloportPhotonix Link */}
+              <div className="mt-4">
                 <a
-                  key={label}
-                  href={href}
-                  className="text-gray-500 hover:text-[#00ffdf]"
-                  aria-label={label}
+                  href="https://linktr.ee/GloportPhotonix"
+                  className="text-gray-500 hover:text-[#00ffdf] align-middle"
+                  aria-label="GloportPhotonix"
                 >
-                  {Icon ? <Icon className="h-6 w-6" /> : <span>{label}</span>}
+                  GloportPhotonix
                 </a>
-              ))}
+              </div>
             </div>
           </div>
         </div>
