@@ -52,7 +52,11 @@ export default function Footer() {
                 {[
                   { Icon: Facebook, label: "Facebook", href: "#" },
                   { Icon: X, label: "X", href: "#" },
-                  { Icon: Instagram, label: "Instagram", href: "#" },
+                  {
+                    Icon: Instagram,
+                    label: "Instagram",
+                    href: "https://instagram.com/_gloport_photonix_",
+                  },
                   { Icon: Linkedin, label: "LinkedIn", href: "#" },
                 ].map(({ Icon, label, href }) => (
                   <a

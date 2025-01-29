@@ -695,11 +695,11 @@ export default function Home() {
                   Navi Mumbai, Maharashtra, 400710 India
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
+              {/* <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
                 <Phone className="h-6 w-6 text-[#3bd6c6]" />
                 <h3 className="text-lg font-bold text-gray-900">Phone</h3>
                 <p className="text-gray-900">+91 9920144752</p>
-              </div>
+              </div> */}
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
                 <Mail className="h-6 w-6 text-[#3bd6c6]" />
                 <h3 className="text-lg font-bold text-gray-900">Email</h3>
