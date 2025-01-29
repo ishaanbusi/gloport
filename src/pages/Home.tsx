@@ -676,11 +676,15 @@ export default function Home() {
           className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 transition-transform duration-300"
         >
           <div className="space-y-12">
-            <h2 className="text-3xl tracking-tight text-[#3bd6c6] sm:text-3xl">
+            {/* Section Header */}
+            <h2 className="text-3xl tracking-tight text-[#3bd6c6] sm:text-3xl text-left">
               Contact Details
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
+
+            {/* Two-Column Layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Left Column */}
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 flex flex-col justify-between h-full">
                 <MapPin className="h-6 w-6 text-[#3bd6c6]" />
                 <h3 className="text-lg font-bold text-gray-900">
                   Corporate Office
@@ -695,16 +699,13 @@ export default function Home() {
                   Navi Mumbai, Maharashtra, 400710 India
                 </p>
               </div>
-              {/* <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-                <Phone className="h-6 w-6 text-[#3bd6c6]" />
-                <h3 className="text-lg font-bold text-gray-900">Phone</h3>
-                <p className="text-gray-900">+91 9920144752</p>
-              </div> */}
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
+
+              {/* Right Column */}
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 flex flex-col justify-between h-full">
                 <Mail className="h-6 w-6 text-[#3bd6c6]" />
                 <h3 className="text-lg font-bold text-gray-900">Email</h3>
                 <p className="text-gray-900">info@gloportphotonix.com</p>
-                <p className="text-grey-600">career@gloportphotonix.com</p>
+                <p className="text-gray-600">career@gloportphotonix.com</p>
               </div>
             </div>
           </div>
