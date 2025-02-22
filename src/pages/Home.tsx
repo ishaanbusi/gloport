@@ -694,9 +694,9 @@ export default function Home() {
                     Gloport Photonix Innovations Pvt Ltd
                   </span>
                   <br />
-                  Office no: 2103 to 2106, Kamdhenu 23 West, TTC Industrial
-                  Area, MIDC Industrial Area, Pawne, Near MIDC Fire Brigade,
-                  Navi Mumbai, Maharashtra, 400710 India
+                  Gloport Photonix Innovations Pvt Ltd 21st Floor, 2103 - 2106,
+                  Kamdhenu 23 West, TTC Industrial Area, Pawne, Thane Belapur
+                  Road, Navi Mumbai, Maharashtra, 400710
                 </p>
               </div>
 
@@ -704,8 +704,11 @@ export default function Home() {
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 flex flex-col justify-between h-full">
                 <Mail className="h-6 w-6 text-[#3bd6c6]" />
                 <h3 className="text-lg font-bold text-gray-900">Email</h3>
-                <p className="text-gray-900">info@gloportphotonix.com</p>
-                <p className="text-gray-600">career@gloportphotonix.com</p>
+                <p className="text-gray-900">
+                  info@gloportphotonix.com
+                  <br />
+                  career@gloportphotonix.com
+                </p>
               </div>
             </div>
           </div>
