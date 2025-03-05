@@ -584,7 +584,7 @@ export default function Home() {
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
             style={{
               backgroundImage:
-                "url('https://i.postimg.cc/Ssxhd4HH/Whats-App-Image-2025-01-06-at-16-38-29.jpg')",
+                "url('https://i.postimg.cc/LXVm1G7b/Whats-App-Image-2025-03-04-at-23-07-35.jpg')",
             }}
           >
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
@@ -701,10 +701,10 @@ export default function Home() {
               </div>
 
               {/* Right Column */}
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 flex flex-col justify-between h-full">
-                <Mail className="h-6 w-6 text-[#3bd6c6]" />
-                <h3 className="text-lg font-bold text-gray-900">Email</h3>
-                <p className="text-gray-900">
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 flex flex-col items-left h-full">
+                <Mail className="h-6 w-6 text-[#3bd6c6] mb-1" />
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Email</h3>
+                <p className="text-gray-900 text-left">
                   info@gloportphotonix.com
                   <br />
                   career@gloportphotonix.com
