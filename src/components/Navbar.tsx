@@ -27,9 +27,9 @@ export default function Navbar() {
             <Link to="/" className="flex-shrink-0 flex items-center">
               {/* Logo Image */}
               <img
-                src="https://i.postimg.cc/s2kTLcn8/Logo.png"
+                src="https://i.postimg.cc/HLc0R246/Whats-App-Image-2025-03-06-at-19-24-01-removebg-preview.png"
                 alt="Logo"
-                className="h-16 w-auto sm:h-45 mr-2"
+                className="h-10 w-auto sm:h-45 mr-2"
               />
               {/* Logo Text */}
             </Link>

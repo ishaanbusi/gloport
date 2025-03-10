@@ -5,7 +5,6 @@ import {
   Globe2,
   Heart,
   MapPin,
-  Phone,
   Mail,
   Stethoscope,
   Globe,
@@ -18,7 +17,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Wave from "../components/Wave.tsx";
 import Fade from "react-reveal/Fade";
-import Zoom from "react-reveal/Zoom";
 
 // const team = [
 //   {
