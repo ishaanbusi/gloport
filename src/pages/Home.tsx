@@ -81,7 +81,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <Fade top duration={500}>
+      <Fade bottom duration={500}>
         <section
           id="home"
           className="relative bg-[#3bd6c6] transition-transform duration-500 transform hover:scale-105"
@@ -123,7 +123,7 @@ export default function Home() {
       </Fade>
 
       {/* Introduction Section */}
-      <Fade left duration={500}>
+      <Fade bottom duration={500}>
         <section
           id="about"
           className="py-16 bg-white transition-transform duration-300"
@@ -165,7 +165,7 @@ export default function Home() {
       </Fade>
 
       {/* Solutions Overview Section */}
-      <Fade right duration={500}>
+      <Fade bottom duration={500}>
         <section
           id="services"
           className="relative py-16 bg-[#3bd6c6] flex flex-col md:flex-row transition-transform duration-300 hover:scale-105"
@@ -275,7 +275,7 @@ export default function Home() {
       </Fade>
 
       {/* Technology Section */}
-      <Fade left duration={500}>
+      <Fade bottom duration={500}>
         <section
           id="innovation"
           className="relative py-16 bg-[#f0f4f8] transition-transform duration-300 "
@@ -336,7 +336,7 @@ export default function Home() {
       </Fade>
 
       {/* Why Choose Us Section */}
-      <Fade right duration={500}>
+      <Fade bottom duration={500}>
         <section
           id="why-us"
           className="py-16 bg-white shadow-lg transition-transform duration-300 hover:scale-105"
@@ -486,7 +486,7 @@ export default function Home() {
         </section>
       </Fade>
 
-      <Fade duration={500}>
+      <Fade bottom duration={500}>
         <section
           id="team"
           className="relative bg-[#3bd6c6] transition-transform duration-300 hover:scale-105"
@@ -623,7 +623,7 @@ export default function Home() {
         </div>
       </Fade>
 
-      <Fade duration={500}>
+      <Fade bottom duration={500}>
         <div className="bg-[#f0f4f8] transition-transform duration-300 hover:scale-105">
           <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
             <h2 className="text-3xl font-extrabold tracking-tight text-[#3bd6c6] sm:text-4xl">
@@ -668,7 +668,7 @@ export default function Home() {
         </div>
       </Fade>
 
-      <Fade left cascade duration={500}>
+      <Fade bottom cascade duration={500}>
         <section
           id="contact-us"
           className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 transition-transform duration-300"
@@ -714,7 +714,7 @@ export default function Home() {
       </Fade>
 
       {/* Map Section */}
-      <Fade right duration={500}>
+      <Fade bottom duration={500}>
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 transition-transform duration-300 hover:scale-105">
           <h2 className="text-3xl tracking-tight text-[#3bd6c6] sm:text-3xl">
             Our Location
