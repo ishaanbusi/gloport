@@ -186,9 +186,9 @@ export default function Home() {
               <p className="mt-4 text-lg text-white text-justify">
                 Early diagnosis saves lives, and at Gloport Photonix, we are
                 pioneering new ways to detect diseases before symptoms arise.
-                Our flagship product, the Advanced Breath Scan, leverages
-                photoacoustic technology in exhaled breath with unmatched
-                sensitivity.
+                Our flagship product, the Advanced Photonic Breath Scan,
+                leverages photoacoustic technology in exhaled breath with
+                unmatched sensitivity.
               </p>
 
               <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -201,8 +201,8 @@ export default function Home() {
                     </h3>
                   </div>
                   <p className="mt-2 text-gray-600">
-                    Our breath scan is designed to provide accurate results
-                    without the need for invasive procedures.
+                    Our photonic breath scan is designed to provide accurate
+                    results without the need for invasive procedures.
                   </p>
                 </div>
 
@@ -352,9 +352,9 @@ export default function Home() {
                 product development, Gloport Photon
                 <span className="text-red-500">i</span>x offers revolutionary
                 solutions that can redefine healthcare diagnostics. Our advanced
-                breath scans are built with a vision to help doctors detect
-                diseases earlier, improving survival rates and enhancing patient
-                outcomes.
+                photonic breath scans are built with a vision to help doctors
+                detect diseases earlier, improving survival rates and enhancing
+                patient outcomes.
               </p>
               <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
