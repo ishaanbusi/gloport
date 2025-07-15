@@ -10,6 +10,7 @@ import {
   Globe,
   ArrowLeft,
   ArrowUp,
+  Phone,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
@@ -679,9 +680,9 @@ export default function Home() {
               Contact Details
             </h2>
 
-            {/* Two-Column Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Left Column */}
+            {/* Three-Column Layout */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Corporate Office */}
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 flex flex-col justify-between h-full">
                 <MapPin className="h-6 w-6 text-[#3bd6c6]" />
                 <h3 className="text-lg font-bold text-gray-900">
@@ -692,13 +693,13 @@ export default function Home() {
                     Gloport Photonix Innovations Pvt Ltd
                   </span>
                   <br />
-                  Gloport Photonix Innovations Pvt Ltd 21st Floor, 2103 - 2106,
-                  Kamdhenu 23 West, TTC Industrial Area, Pawne, Thane Belapur
-                  Road, Navi Mumbai, Maharashtra, 400710
+                  21st Floor, 2103 - 2106, Kamdhenu 23 West, TTC Industrial
+                  Area, Pawne, Thane Belapur Road, Navi Mumbai, Maharashtra,
+                  400710
                 </p>
               </div>
 
-              {/* Right Column */}
+              {/* Email */}
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 flex flex-col items-left h-full">
                 <Mail className="h-6 w-6 text-[#3bd6c6] mb-1" />
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Email</h3>
@@ -707,6 +708,13 @@ export default function Home() {
                   <br />
                   career@gloportphotonix.com
                 </p>
+              </div>
+
+              {/* Phone */}
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 flex flex-col items-left h-full">
+                <Phone className="h-6 w-6 text-[#3bd6c6] mb-1" />
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Phone</h3>
+                <p className="text-gray-900 text-left">+91 98333 96290</p>
               </div>
             </div>
           </div>
