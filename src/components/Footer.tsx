@@ -50,14 +50,26 @@ export default function Footer() {
               {/* Social Media Icons */}
               <div className="flex space-x-4">
                 {[
-                  { Icon: Facebook, label: "Facebook", href: "#" },
-                  { Icon: X, label: "X", href: "#" },
+                  {
+                    Icon: Facebook,
+                    label: "Facebook",
+                    href: "https://www.facebook.com/profile.php?id=61571180518799",
+                  },
+                  {
+                    Icon: X,
+                    label: "X",
+                    href: "https://x.com/GloportPhotonix",
+                  },
                   {
                     Icon: Instagram,
                     label: "Instagram",
                     href: "https://instagram.com/_gloport_photonix_",
                   },
-                  { Icon: Linkedin, label: "LinkedIn", href: "#" },
+                  {
+                    Icon: Linkedin,
+                    label: "LinkedIn",
+                    href: "https://www.linkedin.com/company/gloport-photonix/",
+                  },
                 ].map(({ Icon, label, href }) => (
                   <a
                     key={label}
