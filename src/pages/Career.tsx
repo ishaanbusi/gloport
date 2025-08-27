@@ -1,240 +1,569 @@
-import { ArrowRight, MapPin, Clock, Briefcase } from 'lucide-react';
+import React from "react";
+import {
+  Heart,
+  Calculator,
+  Target,
+  Globe2,
+  Zap,
+  Stethoscope,
+  Phone,
+  Mail,
+  ArrowRight,
+} from "lucide-react";
 
-const positions = [
-  {
-    title: 'Photonics Engineer',
-    type: 'Full-time',
-    location: 'Remote',
-    department: 'Engineering',
-    description: 'Help develop and refine our cutting-edge photonics technology for medical diagnostics and environmental monitoring.',
-  },
-  {
-    title: 'Biomedical Research Scientist',
-    type: 'Full-time',
-    location: 'Remote',
-    department: 'Research',
-    description: 'Conduct research on disease biomarkers and contribute to the development of non-invasive diagnostic tools.',
-  },
-  {
-    title: 'Software Developer (IoT Integration)',
-    type: 'Full-time',
-    location: 'Remote',
-    department: 'Engineering',
-    description: 'Design and implement IoT systems to connect our devices with real-time monitoring platforms for healthcare providers.',
-  },
-  {
-    title: 'Manufacturing Engineer',
-    type: 'Full-time',
-    location: 'On-site',
-    department: 'Manufacturing',
-    description: 'Oversee the production and assembly of our medical devices, ensuring efficiency, quality, and scalability.',
-  },
-  {
-    title: 'Product Manager',
-    type: 'Full-time',
-    location: 'New York, NY',
-    department: 'Product',
-    description: 'Lead the development and commercialization of new products, working closely with R&D and marketing teams.',
-  },
-];
-
-const benefits = [
-  'Competitive salary and equity',
-  'Health, dental, and vision insurance',
-  'Unlimited PTO',
-  'Remote work options',
-  'Professional development budget',
-  'Company-sponsored events',
-  'Wellness programs',
-  '401(k) matching',
-];
-
-export default function Career() {
+const GloPortCareers = () => {
   return (
-    <div className="bg-white">
-      {/* Hero Section */}
-      <div className="relative bg-indigo-800">
-        <div className="absolute inset-0">
-          <img
-            className="w-full h-full object-cover"
-            src="https://images.unsplash.com/photo-1522071901873-411886a10004?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80"
-            alt="Office"
-          />
-          <div className="absolute inset-0 bg-indigo-800 mix-blend-multiply" />
-        </div>
-        <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Join Our Team
-          </h1>
-          <p className="mt-6 text-xl text-indigo-100 max-w-3xl">
-            Build your career with us and be part of an innovative team that's shaping
-            the future of technology.
-          </p>
-        </div>
-      </div>
-
-      {/* Careers Section */}
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <div className="space-y-12">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-indigo-600">
-            Careers at Gloport Photonix Innovations Pvt Ltd
-          </h2>
-          <p className="text-lg text-gray-700">
-            At Gloport Photonix Innovations Pvt Ltd, we are driven by a passion for innovation, science, and creating meaningful change in the healthcare and technology industries. If you’re looking for a career that challenges you, inspires creativity, and allows you to be part of groundbreaking work in photonics technology, you’ve come to the right place.
-          </p>
-          <h3 className="text-2xl font-bold text-indigo-500">Join Our Team of Pioneers</h3>
-          <p className="text-lg text-gray-700">
-            As a leader in deep-tech and medical diagnostics, we are always looking for talented, motivated, and forward-thinking individuals who are ready to push the boundaries of what’s possible. Whether you're a scientist, engineer, technologist, or business professional, you’ll have the opportunity to work on cutting-edge solutions that make a real difference in healthcare, environmental safety, and beyond.
-          </p>
-          <p className="text-lg text-gray-700">
-            At Gloport Photonix, we are not just developing products—we are shaping the future of diagnostics and creating a healthier, more sustainable world. Join us as we revolutionize healthcare with photonics technology.
-          </p>
-          <h3 className="text-2xl font-bold text-indigo-500">Why Work with Us?</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-              <strong>Innovation at the Core:</strong> At Gloport Photonix, we believe that innovation is more than just a word—it’s a mindset. Every member of our team is encouraged to think creatively, take risks, and explore new ideas.
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-              <strong>Impactful Work:</strong> We are solving some of the world’s most pressing healthcare challenges. Your work here will not only drive technological breakthroughs but also improve lives on a global scale.
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-              <strong>A Culture of Collaboration:</strong> Our success is built on collaboration—across teams, disciplines, and industries. At Gloport Photonix, you’ll be part of a community where everyone’s contribution is valued.
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-              <strong>Continuous Learning and Growth:</strong> We are committed to the growth and development of our employees. You’ll have access to learning opportunities, training programs, and career development resources.
-            </div>
-          </div>
-          <h3 className="text-2xl font-bold text-indigo-500">Who We’re Looking For</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-              Innovators who thrive in solving complex challenges with creative solutions.
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-              Collaborators who believe in teamwork and value diverse perspectives.
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-              Visionaries who are eager to contribute to technologies that will shape the future of healthcare and beyond.
-            </div>
-          </div>
-          <div className="space-y-12 !text-left">
-  <div className="space-y-5 text-indigo-500 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
-    <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-      Current Openings
-    </h2>
-    <p className="text-xl text-gray-500">
-      Explore the exciting career opportunities available at Gloport Photonix Innovations Pvt Ltd. We are looking for talented professionals to join us in various roles, including:
-    </p>
-  </div>
-  <div className="space-y-4">
-    {positions.map((position) => (
-      <div
-        key={position.title}
-        className="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
-      >
-        <div className="flex-1 min-w-0">
-          <p className="text-lg font-medium text-gray-900">{position.title}</p>
-          <div className="flex items-center space-x-6 mt-2">
-            <div className="flex items-center text-sm text-gray-500">
-              <Briefcase className="flex-shrink-0 mr-1.5 h-4 w-4" />
-              {position.department}
-            </div>
-            <div className="flex items-center text-sm text-gray-500">
-              <MapPin className="flex-shrink-0 mr-1.5 h-4 w-4" />
-              {position.location}
-            </div>
-            <div className="flex items-center text-sm text-gray-500">
-              <Clock className="flex-shrink-0 mr-1.5 h-4 w-4" />
-              {position.type}
-            </div>
-          </div>
-          <p className="mt-2 text-sm text-gray-500">{position.description}</p>
-        </div>
-        <div className="flex-shrink-0">
-          <ArrowRight className="h-5 w-5 text-gray-400" />
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
-
-          <p className="text-lg text-gray-700">
-            Don’t see a role that fits your expertise? We’re always interested in meeting talented individuals. Feel free to send your resume to <a href="mailto:careers@gloportphotonix.com" className="text-indigo-600 underline">careers@gloportphotonix.com</a> for future opportunities.
-          </p>
-          <h3 className="text-2xl font-bold text-indigo-500">Employee Benefits</h3>
-          <p className="text-lg text-gray-700">
-            At Gloport Photonix, we believe that taking care of our employees is just as important as the work we do. We offer a comprehensive benefits package that supports your health, well-being, and career growth:
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {benefits.map((benefit) => (
-              <div key={benefit} className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-                <p className="text-lg leading-6 font-medium text-gray-900">
-                  {benefit}
-                </p>
-              </div>
-            ))}
-          </div>
-          <h3 className="text-2xl font-bold text-indigo-500">Life at Gloport Photonix</h3>
-          <p className="text-lg text-gray-700">
-            We are more than just a workplace—we’re a community of thinkers, creators, and innovators. We celebrate our successes together, support each other through challenges, and continually strive to create a workplace that fosters both personal and professional growth.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-              <strong>An Inclusive Environment:</strong> We value diversity and are committed to creating an inclusive environment where everyone feels empowered to contribute their best ideas.
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-              <strong>Meaningful Work:</strong> Our projects aren’t just about technology; they’re about improving people’s lives and making a real difference in the world.
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-              <strong>A Global Reach:</strong> Be part of a team that’s solving healthcare challenges across the globe, from advanced medical institutions to underserved communities.
-            </div>
-          </div>
-          <h3 className="text-2xl font-bold text-indigo-500">Join Us and Shape the Future</h3>
-          <p className="text-lg text-gray-700">
-            If you’re ready to be part of a team that’s redefining healthcare and pushing the boundaries of photonics technology, we’d love to hear from you. Explore our current openings or send us your resume to be considered for future opportunities.
-          </p>
-          <div className="flex space-x-4">
-            <a href="#openings" className="inline-block px-6 py-3 text-white bg-indigo-600 rounded-md shadow hover:bg-indigo-700 transition duration-200">
-              Explore Current Openings
-            </a>
-            <a href="mailto:careers@gloportphotonix.com" className="inline-block px-6 py-3 text-white bg-indigo-600 rounded-md shadow hover:bg-indigo-700 transition duration-200">
-              Submit Your Resume
-            </a>
-          </div>
-        </div>
-      </div>
-      
-
-      {/* Benefits Section */}
-      <div className="bg-gray-50">
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-              Benefits & Perks
+    <div className="bg-gray-50 font-inter">
+      {/* Career Section */}
+      <section id="careers" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-normal text-[#3bd6c6] mb-4">
+              Join Our Team at Gloport Photon
+              <span className="text-red-500">i</span>x
             </h2>
-            <p className="mt-4 text-lg text-gray-500">
-              We offer competitive compensation and great benefits to help you thrive
-              both personally and professionally.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Be part of a revolutionary team that's transforming healthcare
+              through advanced photonics technology. We're looking for
+              passionate individuals who want to make a difference in early
+              disease detection and medical diagnostics.
             </p>
+            <div className="mt-6 bg-[#f0f4f8] rounded-lg p-4 max-w-4xl mx-auto">
+              <p className="text-sm text-gray-700">
+                <strong>
+                  ISO 9001:2015 & ISO 13485:2016 Certified Company
+                </strong>{" "}
+                | StartupIndia DIPP: 192463
+              </p>
+              <p className="text-xs text-gray-600 mt-1">
+                CIN: U72100MH2024PTC433898 | GSTIN: 27AALCG5612N1Z6
+              </p>
+            </div>
           </div>
-          <dl className="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
-            {benefits.map((benefit) => (
-              <div key={benefit} className="relative">
-                <dt>
-                  <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-                    </svg>
-                  </div>
-                  <p className="ml-16 text-lg leading-6 font-medium text-gray-900">
-                    {benefit}
+
+          {/* Job Openings Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {/* Job 1: Accounts & Finance Manager */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 border border-gray-200">
+              <div className="flex items-center mb-4">
+                <Heart className="h-8 w-8 text-[#3bd6c6] mr-3" />
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    Accounts & Finance Manager
+                  </h3>
+                  <p className="text-sm text-gray-500">
+                    Individual Contributor – IC
                   </p>
-                </dt>
+                </div>
               </div>
-            ))}
-          </dl>
+              <div className="mb-4">
+                <span className="inline-block bg-[#3bd6c6] text-white px-3 py-1 rounded-full text-sm font-medium">
+                  Full-time
+                </span>
+                <span className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  Navi Mumbai
+                </span>
+                <span className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  10+ Years
+                </span>
+              </div>
+              <div className="text-gray-600 mb-4 space-y-2">
+                <p>
+                  <strong>Role Overview:</strong> Lead the finance and
+                  accounting functions of our growing startup. Maintain
+                  financial integrity, compliance, fund flow, and accounting
+                  processes.
+                </p>
+                <div className="text-sm">
+                  <p>
+                    <strong>Key Areas:</strong>
+                  </p>
+                  <ul className="list-disc list-inside text-xs space-y-1 ml-2">
+                    <li>Day-to-day accounting operations in Tally ERP</li>
+                    <li>Finance & Fund Management (equity, debt, grants)</li>
+                    <li>Statutory Compliances (GST, TDS, Professional Tax)</li>
+                    <li>Strategic & Operational Finance support</li>
+                    <li>Stakeholder Engagement with banks, auditors</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="text-sm text-gray-500 mb-4">
+                <strong>Requirements:</strong> M.Com, 10+ years (corporates +
+                startups), Tally ERP, Excel proficiency
+              </div>
+              <div className="text-sm text-gray-500 mb-4">
+                <strong>Reporting to:</strong> CFO & CBO
+              </div>
+              <div className="flex gap-2">
+                <a
+                  href="mailto:careers@gloportphotonix.com?subject=Application for Accounts & Finance Manager&body=Dear Hiring Team,%0D%0A%0D%0AI am interested in the Accounts & Finance Manager position. Please find my resume attached.%0D%0A%0D%0AKey Details:%0D%0A- Position: Accounts & Finance Manager%0D%0A- Location: Navi Mumbai (Corporate Office)%0D%0A- Experience: 10+ years (corporates + startups)%0D%0A- Qualification: M.Com / Equivalent%0D%0A%0D%0ABest regards"
+                  className="inline-flex items-center text-[#3bd6c6] hover:text-[#2c554f] font-medium"
+                >
+                  Apply via Email <Mail className="ml-1 h-4 w-4" />
+                </a>
+                <span className="text-gray-300">|</span>
+                <a
+                  href="https://forms.gle/C9hvwdtz2QcqPTVL7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-[#3bd6c6] hover:text-[#2c554f] font-medium"
+                >
+                  Quick Apply <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* Job 2: Accountant */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 border border-gray-200">
+              <div className="flex items-center mb-4">
+                <Calculator className="h-8 w-8 text-[#3bd6c6] mr-3" />
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    Accountant
+                  </h3>
+                  <p className="text-sm text-gray-500">Financial Operations</p>
+                </div>
+              </div>
+              <div className="mb-4">
+                <span className="inline-block bg-[#3bd6c6] text-white px-3 py-1 rounded-full text-sm font-medium">
+                  Full-time
+                </span>
+                <span className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  Navi Mumbai
+                </span>
+                <span className="inline-block bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  5-10 Years
+                </span>
+                <span className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  As per experience
+                </span>
+              </div>
+              <div className="text-gray-600 mb-4 space-y-2">
+                <p>
+                  <strong>About the Role:</strong> Experienced Accountant (Male
+                  candidate preferred) with strong accounting expertise to
+                  manage day-to-day financial operations.
+                </p>
+                <div className="text-sm">
+                  <p>
+                    <strong>Key Responsibilities:</strong>
+                  </p>
+                  <ul className="list-disc list-inside text-xs space-y-1 ml-2">
+                    <li>
+                      Day-to-day accounting operations, bookkeeping, invoicing
+                    </li>
+                    <li>Bank reconciliation and ledger maintenance</li>
+                    <li>Prepare MIS reports, P&L statements, balance sheets</li>
+                    <li>Handle GST, TDS, and statutory compliances</li>
+                    <li>Coordinate with banks, vendors, internal teams</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="text-sm text-gray-500 mb-4">
+                <strong>Requirements:</strong> B.Com/M.Com, 5-10 years
+                experience, Tally ERP & MS Excel proficiency
+              </div>
+              <div className="text-sm text-red-600 mb-4">
+                <strong>Note:</strong> Male candidate preferred for this role
+              </div>
+              <div className="flex gap-2">
+                <a
+                  href="mailto:careers@gloportphotonix.com?subject=Application for Accountant&body=Dear Hiring Team,%0D%0A%0D%0AI am interested in the Accountant position. Please find my resume attached.%0D%0A%0D%0AKey Details:%0D%0A- Position: Accountant%0D%0A- Location: Navi Mumbai%0D%0A- Experience: 5-10 years in accounting & finance%0D%0A- Salary: As per experience%0D%0A%0D%0ABest regards"
+                  className="inline-flex items-center text-[#3bd6c6] hover:text-[#2c554f] font-medium"
+                >
+                  Apply via Email <Mail className="ml-1 h-4 w-4" />
+                </a>
+                <span className="text-gray-300">|</span>
+                <a
+                  href="https://forms.gle/C9hvwdtz2QcqPTVL7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-[#3bd6c6] hover:text-[#2c554f] font-medium"
+                >
+                  Quick Apply <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* Job 3: Product Engineering Lead */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 border border-gray-200">
+              <div className="flex items-center mb-4">
+                <Target className="h-8 w-8 text-[#3bd6c6] mr-3" />
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    Product Engineering Lead
+                  </h3>
+                  <p className="text-sm text-gray-500">
+                    Deep-Tech | Photonics | Healthcare Technology
+                  </p>
+                </div>
+              </div>
+              <div className="mb-4">
+                <span className="inline-block bg-[#3bd6c6] text-white px-3 py-1 rounded-full text-sm font-medium">
+                  Full-time
+                </span>
+                <span className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  Mumbai
+                </span>
+                <span className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  8-10 Years
+                </span>
+              </div>
+              <div className="text-gray-600 mb-4 space-y-2">
+                <p>
+                  <strong>Role Overview:</strong> End-to-end development of
+                  photonics-based healthcare devices. Work at intersection of
+                  lasers, optics, electronics, and software.
+                </p>
+                <div className="text-sm">
+                  <p>
+                    <strong>Key Responsibilities:</strong>
+                  </p>
+                  <ul className="list-disc list-inside text-xs space-y-1 ml-2">
+                    <li>Product Development & Innovation</li>
+                    <li>
+                      Laser characterization, optical detector development
+                    </li>
+                    <li>LabView/Python software for system control</li>
+                    <li>Cross-functional collaboration with R&D scientists</li>
+                    <li>Quality & Compliance (ISO, FDA, CE standards)</li>
+                    <li>Leadership & Mentorship of engineering teams</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="text-sm text-gray-500 mb-4">
+                <strong>Education:</strong> MSc (Physics/Electronics/Photonics)
+                or MTech (Photonics/Laser Physics)
+              </div>
+              <div className="text-sm text-gray-500 mb-4">
+                <strong>Experience:</strong> 8-10 years in Product Engineering,
+                R&D, or Medical Devices
+              </div>
+              <div className="flex gap-2">
+                <a
+                  href="mailto:careers@gloportphotonix.com?subject=Application for Product Engineering Lead&body=Dear Hiring Team,%0D%0A%0D%0AI am interested in the Product Engineering Lead position. Please find my resume attached.%0D%0A%0D%0AKey Details:%0D%0A- Position: Product Engineering Lead%0D%0A- Location: Mumbai, India%0D%0A- Experience: 8-10 Years%0D%0A- Industry: Deep-Tech | Photonics | Healthcare Technology%0D%0A%0D%0ABest regards"
+                  className="inline-flex items-center text-[#3bd6c6] hover:text-[#2c554f] font-medium"
+                >
+                  Apply via Email <Mail className="ml-1 h-4 w-4" />
+                </a>
+                <span className="text-gray-300">|</span>
+                <a
+                  href="https://forms.gle/C9hvwdtz2QcqPTVL7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-[#3bd6c6] hover:text-[#2c554f] font-medium"
+                >
+                  Quick Apply <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* Job 4: Product Lead – Photonics-Based Sensor Systems */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 border border-gray-200">
+              <div className="flex items-center mb-4">
+                <Globe2 className="h-8 w-8 text-[#3bd6c6] mr-3" />
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    Product Lead – Photonics-Based Sensor Systems
+                  </h3>
+                  <p className="text-sm text-gray-500">
+                    Multi-application Development
+                  </p>
+                </div>
+              </div>
+              <div className="mb-4">
+                <span className="inline-block bg-[#3bd6c6] text-white px-3 py-1 rounded-full text-sm font-medium">
+                  Full-time
+                </span>
+                <span className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  Navi Mumbai
+                </span>
+                <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  5+ Years
+                </span>
+              </div>
+              <div className="text-gray-600 mb-4 space-y-2">
+                <p>
+                  <strong>Role Overview:</strong> Design, prototyping, and
+                  integration of laser-based sensor systems for medical
+                  diagnostics, environmental monitoring, agricultural sensing,
+                  and homeland security.
+                </p>
+                <div className="text-sm">
+                  <p>
+                    <strong>Key Responsibilities:</strong>
+                  </p>
+                  <ul className="list-disc list-inside text-xs space-y-1 ml-2">
+                    <li>Product Design & Development of photonics sensors</li>
+                    <li>
+                      Cross-Functional Collaboration with engineering teams
+                    </li>
+                    <li>Troubleshooting & Optimization of laser systems</li>
+                    <li>Documentation & Compliance Support</li>
+                    <li>Field Readiness & Pilot Deployment</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="text-sm text-gray-500 mb-4">
+                <strong>Education:</strong> MTech in Photonics/Electronics or
+                MSc in Physics (Optics/Photonics)
+              </div>
+              <div className="text-sm text-gray-500 mb-4">
+                <strong>Reporting to:</strong> Product Manager / Head of
+                Engineering
+              </div>
+              <div className="flex gap-2">
+                <a
+                  href="mailto:careers@gloportphotonix.com?subject=Application for Product Lead – Photonics-Based Sensor Systems&body=Dear Hiring Team,%0D%0A%0D%0AI am interested in the Product Lead – Photonics-Based Sensor Systems position. Please find my CV and project portfolio attached.%0D%0A%0D%0AKey Details:%0D%0A- Position: Product Lead – Photonics%0D%0A- Location: Navi Mumbai, India%0D%0A- Experience: 5+ years%0D%0A%0D%0ABest regards"
+                  className="inline-flex items-center text-[#3bd6c6] hover:text-[#2c554f] font-medium"
+                >
+                  Apply via Email <Mail className="ml-1 h-4 w-4" />
+                </a>
+                <span className="text-gray-300">|</span>
+                <a
+                  href="https://forms.gle/C9hvwdtz2QcqPTVL7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-[#3bd6c6] hover:text-[#2c554f] font-medium"
+                >
+                  Quick Apply <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* Job 5: Technical Leader – Photonics-Based Sensor Systems */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 border border-gray-200">
+              <div className="flex items-center mb-4">
+                <Zap className="h-8 w-8 text-[#3bd6c6] mr-3" />
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    Technical Leader – Photonics-Based Sensor Systems
+                  </h3>
+                  <p className="text-sm text-gray-500">
+                    Senior Leadership Role
+                  </p>
+                </div>
+              </div>
+              <div className="mb-4">
+                <span className="inline-block bg-[#3bd6c6] text-white px-3 py-1 rounded-full text-sm font-medium">
+                  Full-time
+                </span>
+                <span className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  Navi Mumbai
+                </span>
+                <span className="inline-block bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  17+ Years
+                </span>
+              </div>
+              <div className="text-gray-600 mb-4 space-y-2">
+                <p>
+                  <strong>Your Mission:</strong> Drive technology vision,
+                  innovation roadmap, and cross-domain deployment across
+                  healthcare, environmental monitoring, agriculture, and
+                  homeland security.
+                </p>
+                <div className="text-sm">
+                  <p>
+                    <strong>Key Responsibilities:</strong>
+                  </p>
+                  <ul className="list-disc list-inside text-xs space-y-1 ml-2">
+                    <li>Technology Leadership & Strategy</li>
+                    <li>Product Innovation & Engineering Oversight</li>
+                    <li>Cross-Functional Collaboration</li>
+                    <li>Compliance & Quality Systems (ISO, CE, FDA)</li>
+                    <li>Team Development & Mentorship</li>
+                    <li>Strategic Partnerships & Scale-Up</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="text-sm text-gray-500 mb-4">
+                <strong>Education:</strong> PhD/MTech in Photonics, Laser
+                Physics, Electronics, or Optical Sensing
+              </div>
+              <div className="text-sm text-gray-500 mb-4">
+                <strong>Experience:</strong> 17+ years in R&D/Product
+                Engineering/Deep-tech leadership roles
+              </div>
+              <div className="flex gap-2">
+                <a
+                  href="mailto:careers@gloportphotonix.com?subject=Application for Technical Leader – Photonics-Based Sensor Systems&body=Dear Hiring Team,%0D%0A%0D%0AI am interested in the Technical Leader – Photonics-Based Sensor Systems position. Please find my resume attached.%0D%0A%0D%0AKey Details:%0D%0A- Position: Technical Leader – Photonics%0D%0A- Location: Navi Mumbai, India%0D%0A- Experience Required: 17+ Years%0D%0A- Domains: Healthcare | Environmental Monitoring | Agriculture | Homeland Security%0D%0A%0D%0ABest regards"
+                  className="inline-flex items-center text-[#3bd6c6] hover:text-[#2c554f] font-medium"
+                >
+                  Apply via Email <Mail className="ml-1 h-4 w-4" />
+                </a>
+                <span className="text-gray-300">|</span>
+                <a
+                  href="https://forms.gle/C9hvwdtz2QcqPTVL7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-[#3bd6c6] hover:text-[#2c554f] font-medium"
+                >
+                  Quick Apply <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* Job 6: Executive Assistant to Cofounders & Project Coordinator */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 border border-gray-200">
+              <div className="flex items-center mb-4">
+                <Stethoscope className="h-8 w-8 text-[#3bd6c6] mr-3" />
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    Executive Assistant to Cofounders & Project Coordinator
+                  </h3>
+                  <p className="text-sm text-gray-500">
+                    Strategic Support Role
+                  </p>
+                </div>
+              </div>
+              <div className="mb-4">
+                <span className="inline-block bg-[#3bd6c6] text-white px-3 py-1 rounded-full text-sm font-medium">
+                  Full-time, On site
+                </span>
+                <span className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  Navi Mumbai
+                </span>
+                <span className="inline-block bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  2-4 Years
+                </span>
+              </div>
+              <div className="text-gray-600 mb-4 space-y-2">
+                <p>
+                  <strong>Role Overview:</strong> Dynamic, highly organized
+                  Executive Assistant & Project Coordinator to support visionary
+                  cofounders and manage strategic initiatives.
+                </p>
+                <div className="text-sm">
+                  <p>
+                    <strong>Key Responsibilities:</strong>
+                  </p>
+                  <ul className="list-disc list-inside text-xs space-y-1 ml-2">
+                    <li>Executive Support - Strategic partner to Cofounders</li>
+                    <li>
+                      Manage complex calendars, meetings, travel coordination
+                    </li>
+                    <li>Prepare presentations, briefing documents, reports</li>
+                    <li>
+                      Project Coordination - Drive special projects and
+                      initiatives
+                    </li>
+                    <li>Cross-departmental coordination (R&D, HR, Finance)</li>
+                    <li>
+                      Maintain confidentiality and handle sensitive information
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="text-sm text-gray-500 mb-4">
+                <strong>Qualifications:</strong> Bachelor's degree in
+                Business/Science/Engineering, 2-4 years experience
+              </div>
+              <div className="text-sm text-gray-500 mb-4">
+                <strong>Industry:</strong> Deep-Tech | Photonics
+              </div>
+              <div className="flex gap-2">
+                <a
+                  href="mailto:careers@gloportphotonix.com?subject=Application for Executive Assistant to Cofounders & Project Coordinator&body=Dear Hiring Team,%0D%0A%0D%0AI am interested in the Executive Assistant to Cofounders & Project Coordinator position. Please find my resume attached.%0D%0A%0D%0AKey Details:%0D%0A- Position: Executive Assistant to Cofounders & Project Coordinator%0D%0A- Location: Navi Mumbai – Corporate Office%0D%0A- Experience Required: 2–4 Years%0D%0A- Employment Type: Full-Time, On site%0D%0A%0D%0ABest regards"
+                  className="inline-flex items-center text-[#3bd6c6] hover:text-[#2c554f] font-medium"
+                >
+                  Apply via Email <Mail className="ml-1 h-4 w-4" />
+                </a>
+                <span className="text-gray-300">|</span>
+                <a
+                  href="https://forms.gle/C9hvwdtz2QcqPTVL7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-[#3bd6c6] hover:text-[#2c554f] font-medium"
+                >
+                  Quick Apply <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* Job 7: Executive Secretary & Department Coordinator */}
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 border border-gray-200">
+              <div className="flex items-center mb-4">
+                <Phone className="h-8 w-8 text-[#3bd6c6] mr-3" />
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    Executive Secretary & Department Coordinator
+                  </h3>
+                  <p className="text-sm text-gray-500">
+                    Administrative Excellence
+                  </p>
+                </div>
+              </div>
+              <div className="mb-4">
+                <span className="inline-block bg-[#3bd6c6] text-white px-3 py-1 rounded-full text-sm font-medium">
+                  Full-time, On site
+                </span>
+                <span className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  Navi Mumbai
+                </span>
+                <span className="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                  3-5 Years
+                </span>
+              </div>
+              <div className="text-gray-600 mb-4 space-y-2">
+                <p>
+                  <strong>Role Overview:</strong> Dynamic Executive Secretary &
+                  Department Coordinator to support cofounders and manage
+                  strategic initiatives across departments.
+                </p>
+                <div className="text-sm">
+                  <p>
+                    <strong>
+                      Executive Support and Department Coordination:
+                    </strong>
+                  </p>
+                  <ul className="list-disc list-inside text-xs space-y-1 ml-2">
+                    <li>
+                      Strategic partner and primary contact for Cofounders
+                    </li>
+                    <li>
+                      Manage calendars, meetings, travel, events coordination
+                    </li>
+                    <li>Prepare presentations, reports, internal memos</li>
+                    <li>Document MoMs/action items and ensure follow-ups</li>
+                    <li>
+                      Cross-departmental coordination with R&D, HR, Finance
+                    </li>
+                    <li>Create dashboards and project trackers</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="text-sm text-gray-500 mb-4">
+                <strong>Requirements:</strong> Bachelor's degree, 3-5 years
+                experience in executive support
+              </div>
+              <div className="text-sm text-gray-500 mb-4">
+                <strong>Skills:</strong> MS Office Suite, Project Management,
+                Communication
+              </div>
+              <div className="flex gap-2">
+                <a
+                  href="mailto:careers@gloportphotonix.com?subject=Application for Executive Secretary & Department Coordinator&body=Dear Hiring Team,%0D%0A%0D%0AI am interested in the Executive Secretary & Department Coordinator position. Please find my resume attached.%0D%0A%0D%0AKey Details:%0D%0A- Position: Executive Secretary & Department Coordinator%0D%0A- Location: Navi Mumbai%0D%0A- Experience: 3-5 years%0D%0A- Employment Type: Full-Time, On site%0D%0A%0D%0ABest regards"
+                  className="inline-flex items-center text-[#3bd6c6] hover:text-[#2c554f] font-medium"
+                >
+                  Apply via Email <Mail className="ml-1 h-4 w-4" />
+                </a>
+                <span className="text-gray-300">|</span>
+                <a
+                  href="https://forms.gle/C9hvwdtz2QcqPTVL7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-[#3bd6c6] hover:text-[#2c554f] font-medium"
+                >
+                  Quick Apply <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
-}
+};
+
+export default GloPortCareers;

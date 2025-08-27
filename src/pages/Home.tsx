@@ -18,6 +18,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Wave from "../components/Wave.tsx";
 import Fade from "react-reveal/Fade";
+import Career from "./Career";
 
 // const team = [
 //   {
@@ -647,6 +648,8 @@ export default function Home() {
           </div>
         </div>
       </Fade>
+
+      <Career />
 
       <Fade bottom duration={500}>
         <div className="relative bg-[#3bd6c6] transition-transform duration-300 hover:scale-105">
