@@ -88,14 +88,20 @@ export default function Home() {
           id="home"
           className="relative bg-[#3bd6c6] transition-transform duration-500 transform hover:scale-105"
         >
+          {/* Background Video */}
           <div className="absolute inset-0">
-            <img
+            <video
               className="w-full h-full object-cover"
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80"
-              alt="Hero"
+              src="/videos/hero-bg.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
             />
             <div className="absolute inset-0 bg-[#3bd6c6] mix-blend-multiply" />
           </div>
+
+          {/* Content */}
           <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl text-center">
               <span className="block">
