@@ -9,6 +9,7 @@ import Team from "./pages/Team";
 import Career from "./pages/Career";
 import ContactUs from "./pages/ContactUs";
 import News from "./pages/News";
+import PrivacyPage from "./pages/privacy";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/career" element={<Career />} />
             <Route path="/news" element={<News />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
           </Routes>
         </main>
         <Footer />
