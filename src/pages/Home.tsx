@@ -521,28 +521,7 @@ export default function Home() {
 
       <Fade bottom cascade duration={500}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-6 bg-white">
-          <div
-            className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
-            style={{
-              backgroundImage:
-                "url('https://i.postimg.cc/W1TXPLby/Whats-App-Image-2025-01-01-at-15-02-37.jpg')",
-            }}
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-80 transition duration-500"></div>
-            <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">DR. KHALID KHAN </h3>
-              <p className="text-2xl font-semibold">FOUNDER & CHAIRMAN</p>
-            </div>
-            <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
-              <p className="text-lg text-center">
-                ⁠Dr. Khalid Khan is a reputed entrepreneur & philanthropist with
-                over four decades of experience of creating value across India &
-                abroad. He is Founder & Chairman of the Gloport group of
-                companies.
-              </p>
-            </div>
-          </div>
-
+          {/* 1️⃣ MR. ABHIJEET THAKUR */}
           <div
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
             style={{
@@ -564,28 +543,30 @@ export default function Home() {
             </div>
           </div>
 
+          {/* 2️⃣ DR. ALOK VERMA */}
           <div
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
             style={{
               backgroundImage:
-                "url('https://i.postimg.cc/52gp47X2/Whats-App-Image-2025-01-01-at-15-02-37-1.jpg')",
+                "url('https://i.postimg.cc/k4NhXryy/Whats-App-Image-2025-01-08-at-14-16-40.jpg')",
             }}
           >
-            <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-80 transition duration-500"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">MRS. BUSHRA KHAN</h3>
-              <p className="text-2xl font-semibold">FOUNDER & CFO</p>
+              <h3 className="text-lg font-bold">DR. ALOK VERMA</h3>
+              <p className="text-2xl font-semibold">ADVISOR</p>
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
               <p className="text-lg text-center">
-                With over 12 years of distinguished experience in financial
-                management, she has established herself as a powerhouse in
-                financial strategy, investment control, and operational
-                excellence.
+                He is an eminent scientist in photonics technologies with over
+                35 years of R&D experience. He envisions revolutionizing
+                healthcare diagnostics through breakthrough photonics
+                technologies.
               </p>
             </div>
           </div>
 
+          {/* 3️⃣ MR. SANJAY SINGH */}
           <div
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
             style={{
@@ -607,24 +588,48 @@ export default function Home() {
             </div>
           </div>
 
+          {/* 4️⃣ DR. KHALID KHAN */}
           <div
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
             style={{
               backgroundImage:
-                "url('https://i.postimg.cc/k4NhXryy/Whats-App-Image-2025-01-08-at-14-16-40.jpg')",
+                "url('https://i.postimg.cc/W1TXPLby/Whats-App-Image-2025-01-01-at-15-02-37.jpg')",
             }}
           >
-            <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-80 transition duration-500"></div>
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">DR. ALOK VERMA</h3>
-              <p className="text-2xl font-semibold">ADVISOR</p>
+              <h3 className="text-lg font-bold">DR. KHALID KHAN</h3>
+              <p className="text-2xl font-semibold">FOUNDER & CHAIRMAN</p>
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
               <p className="text-lg text-center">
-                He is an eminent scientist in photonics technologies with over
-                35 years of R&D experience. He envisions revolutionizing
-                healthcare diagnostics through breakthrough photonics
-                technologies.
+                ⁠Dr. Khalid Khan is a reputed entrepreneur & philanthropist with
+                over four decades of experience of creating value across India &
+                abroad. He is Founder & Chairman of the Gloport group of
+                companies.
+              </p>
+            </div>
+          </div>
+
+          {/* 5️⃣ MRS. BUSHRA KHAN */}
+          <div
+            className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
+            style={{
+              backgroundImage:
+                "url('https://i.postimg.cc/52gp47X2/Whats-App-Image-2025-01-01-at-15-02-37-1.jpg')",
+            }}
+          >
+            <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-80 transition duration-500"></div>
+            <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
+              <h3 className="text-lg font-bold">MRS. BUSHRA KHAN</h3>
+              <p className="text-2xl font-semibold">FOUNDER & CFO</p>
+            </div>
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
+              <p className="text-lg text-center">
+                With over 12 years of distinguished experience in financial
+                management, she has established herself as a powerhouse in
+                financial strategy, investment control, and operational
+                excellence.
               </p>
             </div>
           </div>

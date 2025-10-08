@@ -16,6 +16,7 @@ export default function Navbar() {
     { name: "Why Us", href: "why-us" },
     { name: "Testimonial", href: "testimonial" },
     { name: "Team", href: "team" },
+    { name: "Careers", href: "careers" },
     { name: "Contact Us", href: "contact-us" },
   ];
 
