@@ -84,10 +84,7 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <Fade bottom duration={500}>
-        <section
-          id="home"
-          className="relative bg-[#3bd6c6] transition-transform duration-500 transform hover:scale-105"
-        >
+        <section id="home" className="relative w-full h-screen overflow-hidden">
           {/* Background Video */}
           <div className="absolute inset-0">
             <video
@@ -98,34 +95,66 @@ export default function Home() {
               muted
               playsInline
             />
-            <div className="absolute inset-0 bg-[#3bd6c6] mix-blend-multiply" />
+            <div className="absolute inset-0 bg-[#3bd6c6]/60 mix-blend-multiply" />
           </div>
 
           {/* Content */}
-          <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl text-center">
-              <span className="block">
-                Revolutionizing Healthcare & Life Sciences through Advanced
-                Photonics Technology
-              </span>
+          <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-5xl leading-tight">
+              Revolutionizing Healthcare & Life Sciences through Advanced
+              Photonics Technology
             </h1>
-            <p className="m-4 text-lg font-normal tracking-tight text-white text-center">
+
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white max-w-3xl leading-relaxed">
               At Gloport Photon<span className="text-red-500">i</span>x, we are
               committed to creating cutting-edge solutions that empower early
               disease detection, drive innovation in medical diagnostics, and
               enhance healthcare outcomes.
             </p>
-            <div className="mt-10 flex justify-center gap-4">
-              <Link
-                to="https://forms.gle/C9hvwdtz2QcqPTVL7"
+
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-4">
+              <a
+                href="https://forms.gle/C9hvwdtz2QcqPTVL7"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-[#3bd6c6] bg-white hover:bg-[#2c554f] transition duration-300"
+                className="inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base font-medium rounded-md text-[#3bd6c6] bg-white hover:bg-[#2c554f] hover:text-white transition duration-300"
               >
                 Contact Us
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+              </a>
             </div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
+            <button
+              onClick={() =>
+                document
+                  .getElementById("about")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="flex flex-col items-center text-white focus:outline-none group"
+            >
+              <span className="text-xs sm:text-sm mb-1 opacity-80 group-hover:opacity-100 transition">
+                Scroll Down
+              </span>
+              <div className="p-2 rounded-full border border-white/70 bg-white/10 backdrop-blur-md animate-bounce group-hover:scale-110 transition-transform duration-300">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 sm:h-6 sm:w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </button>
           </div>
         </section>
       </Fade>
@@ -554,7 +583,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
               <h3 className="text-lg font-bold">DR. ALOK VERMA</h3>
-              <p className="text-2xl font-semibold">ADVISOR</p>
+              <p className="text-2xl font-semibold">Founder & CTO</p>
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
               <p className="text-lg text-center">
