@@ -583,7 +583,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
               <h3 className="text-lg font-bold">DR. ALOK VERMA</h3>
-              <p className="text-2xl font-semibold">Founder & CTO</p>
+              <p className="text-2xl font-semibold">FOUNDER & CTO</p>
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
               <p className="text-lg text-center">
