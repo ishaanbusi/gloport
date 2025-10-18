@@ -86,9 +86,9 @@ export default function Home() {
       <Fade bottom duration={500}>
         <section id="home" className="relative w-full h-screen overflow-hidden">
           {/* Background Video */}
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-black">
             <video
-              className="w-full h-full object-cover"
+              className="w-full h-auto"
               src="/videos/hero-bg.mp4"
               autoPlay
               loop
