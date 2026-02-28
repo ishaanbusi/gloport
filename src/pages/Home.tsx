@@ -572,29 +572,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 2️⃣ DR. ALOK VERMA */}
-          <div
-            className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
-            style={{
-              backgroundImage:
-                "url('https://i.postimg.cc/nhCwF2xw/42476173-10156086177442739-4789044828899901440-n.jpg')",
-            }}
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
-            <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">Dr. Varun Jeoti</h3>
-              <p className="text-2xl font-semibold">CTO</p>
-            </div>
-            <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
-              <p className="text-lg text-center">
-                Experience over 45 years as an applied physicist and
-                translational technologist, specializing in biosensor innovation
-                and photonics-enabled diagnostics, with leadership roles across
-                Europe and Asia.
-              </p>
-            </div>
-          </div>
-
           {/* 3️⃣ MR. SANJAY SINGH */}
           <div
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
@@ -613,6 +590,29 @@ export default function Home() {
                 He is a seasoned leader with over 27 years of experience in
                 business development, strategic marketing, and operational
                 growth across India & abroad.
+              </p>
+            </div>
+          </div>
+
+          {/* 2️⃣ DR. ALOK VERMA */}
+          <div
+            className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
+            style={{
+              backgroundImage:
+                "url('https://i.postimg.cc/bw5YrmtD/DMC8618.jpg')",
+            }}
+          >
+            <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
+            <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
+              <h3 className="text-lg font-bold">Dr. VARUN JEOTI</h3>
+              <p className="text-2xl font-semibold">CTO</p>
+            </div>
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
+              <p className="text-lg text-center">
+                Experience over 45 years as an applied physicist and
+                translational technologist, specializing in biosensor innovation
+                and photonics-enabled diagnostics, with leadership roles across
+                Europe and Asia.
               </p>
             </div>
           </div>
