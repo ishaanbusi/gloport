@@ -577,20 +577,20 @@ export default function Home() {
             className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
             style={{
               backgroundImage:
-                "url('https://i.postimg.cc/k4NhXryy/Whats-App-Image-2025-01-08-at-14-16-40.jpg')",
+                "url('https://i.postimg.cc/nhCwF2xw/42476173-10156086177442739-4789044828899901440-n.jpg')",
             }}
           >
             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
             <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">DR. ALOK VERMA</h3>
-              <p className="text-2xl font-semibold">FOUNDER & CTO</p>
+              <h3 className="text-lg font-bold">Dr. Varun Jeoti</h3>
+              <p className="text-2xl font-semibold">CTO</p>
             </div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
               <p className="text-lg text-center">
-                He is an eminent scientist in photonics technologies with over
-                35 years of R&D experience. He envisions revolutionizing
-                healthcare diagnostics through breakthrough photonics
-                technologies.
+                Experience over 45 years as an applied physicist and
+                translational technologist, specializing in biosensor innovation
+                and photonics-enabled diagnostics, with leadership roles across
+                Europe and Asia.
               </p>
             </div>
           </div>
