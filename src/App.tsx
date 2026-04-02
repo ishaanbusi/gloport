@@ -1,4 +1,5 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop"; // Import here
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -7,13 +8,15 @@ import Services from "./pages/Services";
 import WhyUs from "./pages/WhyUs";
 import Team from "./pages/Team";
 import Career from "./pages/Career";
-import ContactUs from "./pages/ContactUs";
 import News from "./pages/News";
+import ContactUs from "./pages/ContactUs";
 import PrivacyPage from "./pages/privacy";
+// ... (your other imports)
 
 function App() {
   return (
     <Router>
+      <ScrollToTop /> {/* Place it here */}
       <div className="min-h-screen bg-gray-50 flex flex-col">
         <Navbar />
         <main className="flex-grow">

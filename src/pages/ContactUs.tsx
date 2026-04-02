@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function ContactUs() {
   return (
@@ -33,17 +33,22 @@ export default function ContactUs() {
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
               <MapPin className="h-6 w-6 text-indigo-500" />
               <h3 className="text-lg font-bold text-gray-900">Address</h3>
-              <p className="text-gray-600">1401, VJ Builders, Hinjawadi Phase 2 Rd, Hinjawadi Phase II, Hinjawadi Rajiv Gandhi Infotech Park, Hinjawadi, Pune, Pimpri-Chinchwad, Maharashtra 411053</p>
+              <p className="text-gray-600">
+                Gloport Photonix Innovations Pvt Ltd 21st Floor, 2103 - 2106,
+                Kamdhenu 23 West, TTC Industrial Area, Pawne, Thane Belapur
+                Road, Navi Mumbai, Maharashtra, 400710
+              </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
               <Phone className="h-6 w-6 text-indigo-500" />
               <h3 className="text-lg font-bold text-gray-900">Phone</h3>
-              <p className="text-gray-600">(123) 456-7890</p>
+              <p className="text-gray-600">+91 98333 96290</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
               <Mail className="h-6 w-6 text-indigo-500" />
               <h3 className="text-lg font-bold text-gray-900">Email</h3>
               <p className="text-gray-600">info@gloportphotonix.com</p>
+              <p className="text-gray-600">career@gloportphotonix.com</p>
             </div>
           </div>
 
@@ -53,9 +58,15 @@ export default function ContactUs() {
               Our Location
             </h2>
             <div className="mt-4">
-              <iframe 
+              <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.509009235095!2d73.7153778!3d18.596161699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bbbaf62357d1%3A0x9093b6d9c4cb554a!2sBitance%20Labs!5e0!3m2!1sen!2sin!4v1734503341303!5m2!1sen!2sin"
-                width={800} height={600} style={{border:0}} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                width={800}
+                height={600}
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>

@@ -1,106 +1,150 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import { Link as ScrollLink } from "react-scroll";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll effect for transparent-to-solid transition
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navigation = [
-    { name: "Home", href: "home" },
-    { name: "About", href: "about" },
-    { name: "Solution", href: "services" },
-    { name: "Mission", href: "mission" },
-    { name: "Innovation", href: "innovation" },
-    { name: "Why Us", href: "why-us" },
-    { name: "Testimonial", href: "testimonial" },
-    { name: "Team", href: "team" },
-    { name: "Careers", href: "careers" },
-    { name: "Contact Us", href: "contact-us" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Solution", href: "/services" },
+    { name: "Why Us", href: "/why-us" },
+    { name: "Team", href: "/team" },
+    { name: "Careers", href: "/career" },
+    { name: "News", href: "/news" },
   ];
 
   return (
-    <nav className="bg-white shadow-lg fixed w-full z-10">
+    <nav
+      className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${
+        isScrolled
+          ? "bg-white/80 backdrop-blur-lg shadow-sm py-2"
+          : "bg-transparent py-4"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex justify-center items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center">
-              {/* Logo Image */}
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0 flex items-center">
+            <Link to="/" className="flex items-center group">
               <img
                 src="https://i.postimg.cc/HLc0R246/Whats-App-Image-2025-03-06-at-19-24-01-removebg-preview.png"
-                alt="Logo"
-                className="h-10 w-auto sm:h-45 mr-2"
+                alt="Gloport Photonix Logo"
+                className="h-10 w-auto mr-2 transition-transform duration-300 group-hover:scale-105"
               />
-              {/* Logo Text */}
             </Link>
           </div>
 
-          {/* Desktop menu */}
-          <div className="hidden sm:flex sm:items-center">
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex lg:items-center lg:space-x-8">
             {navigation.map((item) => (
-              <ScrollLink
+              <NavLink
                 key={item.name}
                 to={item.href}
-                smooth={true}
-                duration={500}
-                className={`px-3 py-2 rounded-md text-sm font-medium ${
-                  activeTab === item.href
-                    ? "text-gray-700 bg-[#00ffdf50]"
-                    : "text-gray-700 hover:text-[#00ffdf] hover:bg-gray-50"
-                }`}
-                onClick={() => {
-                  setActiveTab(item.href);
-                  setIsOpen(false);
-                }}
+                className={({ isActive }) =>
+                  `relative group px-1 py-2 text-sm font-medium transition-colors duration-300 ${
+                    isScrolled
+                      ? "text-slate-700 hover:text-[#3bd6c6]"
+                      : "text-white/90 hover:text-white"
+                  }`
+                }
               >
-                {item.name}
-              </ScrollLink>
+                {({ isActive }) => (
+                  <>
+                    {item.name}
+                    {/* Animated Underline */}
+                    <span
+                      className={`absolute left-0 bottom-0 w-full h-[2px] bg-[#3bd6c6] transform origin-left transition-transform duration-300 ease-out ${
+                        isActive
+                          ? "scale-x-100"
+                          : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                    />
+                  </>
+                )}
+              </NavLink>
             ))}
+
+            {/* Distinct CTA Button */}
+            <NavLink
+              to="/contact-us"
+              className={`ml-4 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 ${
+                isScrolled
+                  ? "bg-[#3bd6c6] text-white hover:bg-[#2bbbb0]"
+                  : "bg-white text-slate-900 hover:bg-slate-50"
+              }`}
+            >
+              Contact Us
+            </NavLink>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="sm:hidden flex items-center">
+          {/* Mobile Menu Button */}
+          <div className="flex items-center lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-indigo-600 hover:bg-gray-50"
+              className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition-colors duration-300 ${
+                isScrolled
+                  ? "text-slate-700 hover:text-[#3bd6c6] hover:bg-slate-100"
+                  : "text-white hover:text-[#3bd6c6] hover:bg-white/10"
+              }`}
             >
+              <span className="sr-only">Open main menu</span>
               {isOpen ? (
-                <X className="h-6 w-6" />
+                <X className="block h-6 w-6" aria-hidden="true" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="sm:hidden">
-          <div className="pt-2 pb-3 space-y-1">
-            {navigation.map((item) => (
-              <ScrollLink
-                key={item.name}
-                to={item.href}
-                smooth={true}
-                duration={500}
-                className={`block px-3 py-2 text-base font-medium ${
-                  activeTab === item.href
-                    ? "text-[#00ffdf] bg-[#00ffdf50]"
-                    : "text-gray-700 hover:text-[#00ffdf] hover:bg-gray-50"
-                }`}
-                onClick={() => {
-                  setActiveTab(item.href);
-                  setIsOpen(false);
-                }}
-              >
-                {item.name}
-              </ScrollLink>
-            ))}
+      {/* Mobile Menu (Animated Dropdown) */}
+      <div
+        className={`lg:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="px-4 pt-2 pb-6 space-y-1">
+          {navigation.map((item) => (
+            <NavLink
+              key={item.name}
+              to={item.href}
+              onClick={() => setIsOpen(false)}
+              className={({ isActive }) =>
+                `block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
+                  isActive
+                    ? "text-[#3bd6c6] bg-[#3bd6c6]/10"
+                    : "text-slate-600 hover:text-[#3bd6c6] hover:bg-slate-50"
+                }`
+              }
+            >
+              {item.name}
+            </NavLink>
+          ))}
+
+          <div className="pt-4 pb-2">
+            <NavLink
+              to="/contact-us"
+              onClick={() => setIsOpen(false)}
+              className="block w-full text-center px-4 py-3 rounded-xl text-base font-semibold text-white bg-[#3bd6c6] hover:bg-[#2bbbb0] transition-colors shadow-sm"
+            >
+              Contact Us
+            </NavLink>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

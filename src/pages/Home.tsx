@@ -1,839 +1,625 @@
+import React, { useState, useEffect } from "react";
 import {
   ArrowRight,
   Zap,
-  Target,
-  Globe2,
-  Heart,
   MapPin,
   Mail,
   Stethoscope,
-  Globe,
   ArrowLeft,
   ArrowUp,
   Phone,
+  CheckCircle2,
+  Copy,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Wave from "../components/Wave.tsx";
 import Fade from "react-reveal/Fade";
 import Career from "./Career";
-
-// const team = [
-//   {
-//     name: 'Alok Verma',
-//     role: 'CEO',
-//     image: 'https://avatar.iran.liara.run/public/boy?username=Ash',
-//     bio: 'Over 15 years of experience in technology and business leadership.',
-//     social: {
-//       twitter: '#',
-//       linkedin: '#',
-//       github: '#',
-//     },
-//   },
-//   {
-//     name: 'Abhijeet Thakur',
-//     role: 'CTO',
-//     image: 'https://avatar.iran.liara.run/public/boy?username=Ash',
-//     bio: 'Expert in cloud architecture and digital transformation.',
-//     social: {
-//       twitter: '#',
-//       linkedin: '#',
-//       github: '#',
-//     },
-//   },
-//   {
-//     name: 'Sanjay Singh',
-//     role: 'COO',
-//     image: 'https://avatar.iran.liara.run/public/boy?username=Ash',
-//     bio: 'Passionate about creating beautiful and intuitive user experiences.',
-//     social: {
-//       twitter: '#',
-//       linkedin: '#',
-//       github: '#',
-//     },
-//   },
-//   {
-//     name: 'Jayesh',
-//     role: 'Hardware Engineer',
-//     image: 'https://avatar.iran.liara.run/public/boy?username=Ash',
-//     bio: 'Full-stack developer with expertise in modern web technologies.',
-//     social: {
-//       twitter: '#',
-//       linkedin: '#',
-//       github: '#',
-//     },
-//   },
-// ];
-
-// const stats = [
-//   { label: 'Years of Experience', value: '15+' },
-//   { label: 'Successful Projects', value: '500+' },
-//   { label: 'Client Satisfaction', value: '98%' },
-//   { label: 'Team Members', value: '50+' },
-// ];
+import Wave from "../components/Wave.tsx";
 
 export default function Home() {
-  // Function to scroll to the top
+  // --- Interactive States ---
+  const [scrollY, setScrollY] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
+  const [copiedStatus, setCopiedStatus] = useState("");
+
+  // Parallax Scroll Effect
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  return (
-    <>
-      {/* Hero Section */}
-      <Fade bottom duration={500}>
-        <section id="home" className="relative w-full h-screen overflow-hidden">
-          {/* Background Video */}
-          <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-black">
-            <video
-              className="w-full h-auto"
-              src="/videos/hero-bg.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-            <div className="absolute inset-0 bg-[#3bd6c6]/60 mix-blend-multiply" />
-          </div>
+  // Interactive Copy to Clipboard
+  const handleCopy = (text: string, type: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedStatus(type);
+    setTimeout(() => setCopiedStatus(""), 2000);
+  };
 
-          {/* Content */}
-          <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-5xl leading-tight">
-              Revolutionizing Healthcare & Life Sciences through Advanced
-              Photonics Technology
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    prevArrow: (
+      <button className="absolute -left-4 z-20 p-2 text-slate-400 hover:text-[#3bd6c6] transition-colors duration-300">
+        <ArrowLeft className="h-6 w-6" />
+      </button>
+    ),
+    nextArrow: (
+      <button className="absolute -right-4 z-20 p-2 text-slate-400 hover:text-[#3bd6c6] transition-colors duration-300">
+        <ArrowRight className="h-6 w-6" />
+      </button>
+    ),
+  };
+
+  const whyUsTabs = [
+    {
+      title: "Precision",
+      desc: "Our devices deliver industry-leading accuracy in detecting even the smallest trace of disease markers, ensuring early and reliable diagnosis.",
+      img: "https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    },
+    {
+      title: "Scalability",
+      desc: "From major healthcare institutions to rural clinics, our architecture is built to adapt everywhere without compromising on performance.",
+      img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    },
+    {
+      title: "Global Reach",
+      desc: "Committed to making cutting-edge diagnostic technology accessible worldwide, breaking down geographical barriers in healthcare.",
+      img: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    },
+  ];
+
+  return (
+    <div className="bg-white overflow-hidden font-sans text-slate-800 selection:bg-[#3bd6c6] selection:text-white">
+      {/* Interactive Hero Section */}
+      <section id="home" className="relative w-full h-screen overflow-hidden">
+        {/* Parallax Background */}
+        <div
+          className="absolute inset-0 w-full h-full flex items-center justify-center bg-slate-900 will-change-transform"
+          style={{ transform: `translateY(${scrollY * 0.4}px)` }}
+        >
+          <video
+            className="w-full h-full object-cover opacity-50 transition-opacity duration-1000"
+            src="/videos/hero-bg.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+          {/* Subtle gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-900"></div>
+        </div>
+
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 lg:px-8 text-center">
+          <Fade bottom duration={1000} distance="40px">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl leading-[1.1] drop-shadow-2xl">
+              Revolutionizing Healthcare through{" "}
+              <span className="text-[#3bd6c6] relative inline-block group">
+                Photonics
+                {/* Interactive underline */}
+                <span className="absolute -bottom-2 left-0 w-full h-1 bg-[#3bd6c6] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-full"></span>
+              </span>
             </h1>
 
-            <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white max-w-3xl leading-relaxed">
-              At Gloport Photon<span className="text-red-500">i</span>x, we are
-              committed to creating cutting-edge solutions that empower early
-              disease detection, drive innovation in medical diagnostics, and
-              enhance healthcare outcomes.
+            <p className="mt-6 text-lg sm:text-xl text-slate-200 max-w-2xl font-light leading-relaxed">
+              At Gloport Photon
+              <span className="text-red-500 font-medium">i</span>x, we create
+              cutting-edge solutions empowering early disease detection and
+              driving diagnostic innovation.
             </p>
 
-            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-4">
+            <div className="mt-10">
               <a
                 href="https://forms.gle/C9hvwdtz2QcqPTVL7"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base font-medium rounded-md text-[#3bd6c6] bg-white hover:bg-[#2c554f] hover:text-white transition duration-300"
+                className="group relative inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-full text-white bg-[#3bd6c6] overflow-hidden transition-all duration-300 shadow-[0_0_20px_rgba(59,214,198,0.3)] hover:shadow-[0_0_40px_rgba(59,214,198,0.6)] hover:-translate-y-1"
               >
-                Contact Us
-                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                <span className="absolute inset-0 w-full h-full bg-white/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+                <span className="relative z-10 flex items-center">
+                  Contact Us
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
+                </span>
               </a>
             </div>
-          </div>
+          </Fade>
+        </div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
-            <button
-              onClick={() =>
-                document
-                  .getElementById("about")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="flex flex-col items-center text-white focus:outline-none group"
-            >
-              <span className="text-xs sm:text-sm mb-1 opacity-80 group-hover:opacity-100 transition">
-                Scroll Down
-              </span>
-              <div className="p-2 rounded-full border border-white/70 bg-white/10 backdrop-blur-md animate-bounce group-hover:scale-110 transition-transform duration-300">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 sm:h-6 sm:w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
+        {/* Scroll Indicator */}
+        <div
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer"
+          onClick={() =>
+            document
+              .getElementById("about")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
+        >
+          <div className="flex flex-col items-center text-white/50 hover:text-white transition-colors duration-300 group">
+            <span className="text-xs uppercase tracking-widest mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              Scroll
+            </span>
+            <div className="w-[1px] h-16 bg-white/20 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1/2 bg-[#3bd6c6] animate-[scrolldown_2s_ease-in-out_infinite]" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-24 bg-white relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <Fade left duration={800} distance="30px">
+              <div>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="h-[1px] w-12 bg-[#3bd6c6]"></div>
+                  <h2 className="text-sm font-bold uppercase tracking-widest text-[#3bd6c6]">
+                    About Us
+                  </h2>
+                </div>
+                <h3 className="text-3xl sm:text-4xl font-light text-slate-900 leading-tight mb-6">
+                  Pioneering the Future of <br />
+                  <span className="font-bold">Medical Diagnostics</span>
+                </h3>
+                <p className="text-lg text-slate-500 font-light leading-relaxed mb-6">
+                  Gloport Photon
+                  <span className="text-red-500 font-medium">i</span>x is a
+                  deep-tech company developing advanced life science solutions
+                  using photonics. Our mission is to transform the global
+                  healthcare landscape by enabling early-stage disease
+                  detection, particularly in cancer diagnostics.
+                </p>
+                <p className="text-lg text-slate-500 font-light leading-relaxed">
+                  Our technologies are designed to be non-invasive, highly
+                  accurate, and accessible, ensuring we meet the evolving needs
+                  of healthcare professionals and patients worldwide.
+                </p>
+              </div>
+            </Fade>
+            <Fade right duration={800} distance="30px">
+              <div className="relative group">
+                {/* Decorative blob behind image */}
+                <div className="absolute -inset-4 bg-[#3bd6c6]/10 rounded-[3rem] transform rotate-3 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105 -z-10"></div>
+                <img
+                  src="https://i.postimg.cc/6p34wgKq/3.jpg"
+                  alt="Gloport Photonix Lab"
+                  className="w-full h-auto rounded-2xl shadow-xl object-cover aspect-[4/3] transition-transform duration-700 group-hover:scale-[1.02]"
+                />
+              </div>
+            </Fade>
+          </div>
+        </div>
+      </section>
+
+      {/* Solutions Overview - Interactive Cards */}
+      <section
+        id="services"
+        className="py-24 bg-slate-50 relative overflow-hidden"
+      >
+        {/* Subtle background decoration */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#3bd6c6]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <Fade bottom duration={800} distance="30px">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-[#3bd6c6] mb-3">
+                Our Solutions
+              </h2>
+              <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">
+                Innovative Early Detection
+              </h3>
+              <p className="text-lg text-slate-500 font-light">
+                Our flagship product leverages photoacoustic technology in
+                exhaled breath with unmatched sensitivity.
+              </p>
+            </div>
+          </Fade>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Stethoscope,
+                title: "Non-Invasive Testing",
+                desc: "Accurate results without the need for invasive, painful procedures.",
+              },
+              {
+                icon: Zap,
+                title: "Real-Time Diagnostics",
+                desc: "Multi-wavelength lasers deliver instant, highly actionable insights.",
+              },
+              {
+                icon: MapPin,
+                title: "Scalable Deployment",
+                desc: "Built to serve sprawling hospitals and remote facilities alike.",
+              },
+            ].map((feature, idx) => (
+              <Fade
+                bottom
+                duration={800}
+                delay={idx * 150}
+                key={idx}
+                distance="30px"
+              >
+                <div className="group relative bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-[#3bd6c6]/10 hover:-translate-y-2 transition-all duration-500 cursor-default">
+                  {/* Hover gradient border effect */}
+                  <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-[#3bd6c6]/20 transition-colors duration-500"></div>
+
+                  <div className="w-14 h-14 bg-slate-50 group-hover:bg-[#3bd6c6] rounded-xl flex items-center justify-center mb-6 transition-colors duration-500">
+                    <feature.icon className="h-7 w-7 text-[#3bd6c6] group-hover:text-white transition-colors duration-500 group-hover:scale-110" />
+                  </div>
+                  <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#3bd6c6] transition-colors">
+                    {feature.title}
+                  </h4>
+                  <p className="text-slate-500 font-light leading-relaxed">
+                    {feature.desc}
+                  </p>
+                </div>
+              </Fade>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Tabs: Why Choose Us */}
+      <section id="why-us" className="py-24 bg-slate-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <Fade left duration={800} distance="30px">
+              <div>
+                <h2 className="text-3xl sm:text-4xl font-bold leading-tight mb-6">
+                  Why Choose <br />
+                  <span className="text-[#3bd6c6]">
+                    Gloport Photon
+                    <span className="text-red-500 font-medium">i</span>x?
+                  </span>
+                </h2>
+
+                {/* Interactive Tabs */}
+                <div className="mt-10 flex flex-col gap-4">
+                  {whyUsTabs.map((tab, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveTab(idx)}
+                      className={`text-left p-6 rounded-2xl transition-all duration-300 border ${
+                        activeTab === idx
+                          ? "bg-slate-800 border-[#3bd6c6]/30 shadow-[0_0_15px_rgba(59,214,198,0.1)]"
+                          : "bg-transparent border-slate-800 hover:bg-slate-800/50 hover:border-slate-700"
+                      }`}
+                    >
+                      <h3
+                        className={`text-xl font-bold mb-2 transition-colors ${activeTab === idx ? "text-[#3bd6c6]" : "text-white"}`}
+                      >
+                        {tab.title}
+                      </h3>
+                      {/* Smooth expand/collapse using CSS max-height */}
+                      <div
+                        className={`overflow-hidden transition-all duration-500 ease-in-out ${activeTab === idx ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}
+                      >
+                        <p className="text-slate-400 font-light mt-2">
+                          {tab.desc}
+                        </p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </Fade>
+
+            <Fade right duration={800} distance="30px">
+              {/* Image changing based on tab selection */}
+              <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+                {whyUsTabs.map((tab, idx) => (
+                  <img
+                    key={idx}
+                    src={tab.img}
+                    alt={tab.title}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+                      activeTab === idx
+                        ? "opacity-100 scale-100"
+                        : "opacity-0 scale-105"
+                    }`}
                   />
-                </svg>
+                ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
               </div>
-            </button>
+            </Fade>
           </div>
-        </section>
-      </Fade>
-
-      {/* Introduction Section */}
-      <Fade bottom duration={500}>
-        <section
-          id="about"
-          className="py-16 bg-white transition-transform duration-300"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row">
-            <div className="flex-1 text-left">
-              <h2 className="text-4xl font-normal text-[#3bd6c6]">
-                About Gloport Photon<span className="text-red-500">i</span>x
-              </h2>
-              <p className="mt-4 text-lg text-gray-600 text-justify">
-                Gloport Photon<span className="text-red-500">i</span>x is a
-                deep-tech company at the forefront of developing advanced
-                healthcare & Life science’s solutions using photonics
-                technology. Our mission is to transform the global healthcare
-                landscape by enabling early-stage disease detection,
-                particularly in cancer diagnostics, and delivering breakthrough
-                innovations that push the boundaries of medical science. Our
-                technologies are designed to be non-invasive, highly accurate,
-                and accessible to healthcare providers worldwide.
-              </p>
-              <p className="mt-4 text-lg text-gray-600 text-justify">
-                We are dedicated to continuous improvement and innovation,
-                ensuring that our solutions meet the evolving needs of
-                healthcare professionals and patients alike. Our team of experts
-                works tirelessly to research and develop new technologies that
-                enhance diagnostic capabilities and improve patient outcomes.
-              </p>
-            </div>
-
-            <div className="flex-1 flex items-center justify-center mt-8 md:mt-0">
-              <img
-                src="https://i.postimg.cc/6p34wgKq/3.jpg"
-                alt="Gloport Photonix"
-                className="w-full h-auto max-w-md bg-[#00ffdf]"
-              />
-            </div>
-          </div>
-        </section>
-      </Fade>
-
-      {/* Solutions Overview Section */}
-      <Fade bottom duration={500}>
-        <section
-          id="services"
-          className="relative py-16 bg-[#3bd6c6] flex flex-col md:flex-row transition-transform duration-300 hover:scale-105"
-        >
-          <div className="absolute inset-0">
-            <img
-              className="w-full h-full object-cover"
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80"
-              alt="Background"
-            />
-            <div className="absolute inset-0 bg-[#3bd6c6] mix-blend-multiply" />
-          </div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1">
-            <div className="text-left">
-              <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Innovative Solutions for Early Detection
-              </h2>
-              <p className="mt-4 text-lg text-white text-justify">
-                Early diagnosis saves lives, and at Gloport Photonix, we are
-                pioneering new ways to detect diseases before symptoms arise.
-                Our flagship product, the Advanced Photonic Breath Scan,
-                leverages photoacoustic technology in exhaled breath with
-                unmatched sensitivity.
-              </p>
-
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Card 1 */}
-                <div className="bg-white p-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-2xl">
-                  <div className="flex items-center mb-4">
-                    <Stethoscope className="h-8 w-8 text-[#3bd6c6] mr-3" />
-                    <h3 className="text-xl font-bold text-gray-800">
-                      Non-Invasive Testing
-                    </h3>
-                  </div>
-                  <p className="mt-2 text-gray-600">
-                    Our photonic breath scan is designed to provide accurate
-                    results without the need for invasive procedures.
-                  </p>
-                </div>
-
-                {/* Card 2 */}
-                <div className="bg-white p-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-2xl">
-                  <div className="flex items-center mb-4">
-                    <Zap className="h-8 w-8 text-[#3bd6c6] mr-3" />
-                    <h3 className="text-xl font-bold text-gray-800">
-                      Real-Time Diagnostics
-                    </h3>
-                  </div>
-                  <p className="mt-2 text-gray-600">
-                    By harnessing the power of multi-wavelength lasers and
-                    advanced signal processing, our technology delivers instant,
-                    real-time insights.
-                  </p>
-                </div>
-
-                {/* Card 3 */}
-                <div className="bg-white p-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-2xl">
-                  <div className="flex items-center mb-4">
-                    <Globe className="h-8 w-8 text-[#3bd6c6] mr-3" />
-                    <h3 className="text-xl font-bold text-gray-800">
-                      Scalable Solutions
-                    </h3>
-                  </div>
-                  <p className="mt-2 text-gray-600">
-                    Built to serve both large hospitals and remote healthcare
-                    facilities, our products are accessible and adaptable.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </Fade>
+        </div>
+      </section>
 
       {/* Mission Section */}
-      <Fade bottom duration={500}>
-        <section
-          id="mission"
-          className="py-16 bg-white transition-transform duration-300"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row">
-            <div className="flex-1 text-left">
-              <h2 className="text-4xl font-normal text-[#3bd6c6]">
-                Our Mission
-              </h2>
-              <p className="mt-4 text-lg text-gray-600 text-justify">
-                At Gloport Photon<span className="text-red-500">i</span>x, we
-                believe in the power of innovation to change the world. Our
-                mission is to develop photonics-based technologies that not only
-                improve healthcare outcomes but also make early diagnostics more
-                accessible across diverse populations. Through continuous
-                research, collaboration, and technological advancement, we are
-                committed to building a future where early-stage disease
-                detection is the norm, not the exception.
-              </p>
-              <Wave />
-            </div>
-            <div className="flex-1 flex items-center justify-center mt-8 md:mt-0">
-              <img
-                src="https://i.postimg.cc/L5YMTwPg/4.jpg"
-                alt="Mission Image"
-                className="w-full h-auto max-w-md"
-              />
-            </div>
-          </div>
-        </section>
-      </Fade>
-
-      {/* Technology Section */}
-      <Fade bottom duration={500}>
-        <section
-          id="innovation"
-          className="relative py-16 bg-[#f0f4f8] transition-transform duration-300 "
-        >
-          <div className="absolute inset-0">
-            <img
-              className="w-full h-full object-cover"
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80"
-              alt="Background"
-            />
-            <div className="absolute inset-0 bg-[#3bd6c6] mix-blend-multiply" />
-          </div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-left">
-              <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Driving Innovation in Healthcare
-              </h2>
-              <p className="mt-4 text-lg text-white text-justify">
-                Our technology solution is set to revolutionize the early
-                detection of cancer and other serious conditions, giving
-                healthcare providers the tools they need to intervene earlier
-                and Utilizing laser-induced acoustic waves to enable precise
-                real-time detection of molecular signatures.
-              </p>
-
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Card 1 */}
-                <div className="bg-white p-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-2xl">
-                  <div className="flex items-center mb-4">
-                    <Zap className="h-8 w-8 text-[#3bd6c6] mr-3" />
-                    <h3 className="text-xl font-bold text-gray-800">
-                      Photoacoustic Spectroscopy
-                    </h3>
-                  </div>
-                  <p className="mt-2 text-gray-600">
-                    Harnessing sound waves generated by laser-light interactions
-                    to detect biomarkers in real time.
-                  </p>
-                </div>
-
-                {/* Card 2 */}
-                <div className="bg-white p-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105 hover:shadow-2xl">
-                  <div className="flex items-center mb-4">
-                    <Globe2 className="h-8 w-8 text-[#3bd6c6] mr-3" />
-                    <h3 className="text-xl font-bold text-gray-800">
-                      IoT-Integrated Systems
-                    </h3>
-                  </div>
-                  <p className="mt-2 text-gray-600">
-                    Enabling continuous monitoring and data-driven insights to
-                    personalize patient care.
-                  </p>
-                </div>
+      <section id="mission" className="py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <Fade left duration={800} distance="30px">
+              <div className="order-2 lg:order-1 relative group">
+                <div className="absolute -inset-4 bg-slate-100 rounded-3xl transform -rotate-3 transition-transform duration-500 group-hover:-rotate-6 -z-10"></div>
+                <img
+                  src="https://i.postimg.cc/L5YMTwPg/4.jpg"
+                  alt="Our Mission"
+                  className="w-full h-auto rounded-2xl shadow-xl object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
-            </div>
-          </div>
-        </section>
-      </Fade>
-
-      {/* Why Choose Us Section */}
-      <Fade bottom duration={500}>
-        <section
-          id="why-us"
-          className="py-16 bg-white shadow-lg transition-transform duration-300 hover:scale-105"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-left">
-              <h2 className="text-3xl tracking-tight text-[#3bd6c6] sm:text-3xl">
-                Why Choose Gloport Photon<span className="text-red-500">i</span>
-                x?
-              </h2>
-              <p className="mt-4 text-lg text-gray-600 text-justify">
-                With our unique blend of scientific expertise and innovative
-                product development, Gloport Photon
-                <span className="text-red-500">i</span>x offers revolutionary
-                solutions that can redefine healthcare diagnostics. Our advanced
-                photonic breath scans are built with a vision to help doctors
-                detect diseases earlier, improving survival rates and enhancing
-                patient outcomes.
-              </p>
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-                  <div className="flex items-center mb-4">
-                    <Target className="h-6 w-6 text-[#3bd6c6] mr-3" />
-                    <h3 className="text-xl font-bold text-gray-800">
-                      Precision and Accuracy
-                    </h3>
-                  </div>
-                  <p className="mt-2 text-gray-600">
-                    Our devices deliver industry-leading accuracy in detecting
-                    even the smallest trace of disease markers.
-                  </p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-                  <div className="flex items-center mb-4">
-                    <Globe2 className="h-6 w-6 text-[#3bd6c6] mr-3" />
-                    <h3 className="text-xl font-bold text-gray-800">
-                      Scalability
-                    </h3>
-                  </div>
-                  <p className="mt-2 text-gray-600">
-                    From large healthcare institutions to rural clinics, our
-                    solutions are built to scale and adapt to different
-                    healthcare environments.
-                  </p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300">
-                  <div className="flex items-center mb-4">
-                    <Heart className="h-6 w-6 text-[#3bd6c6] mr-3" />
-                    <h3 className="text-xl font-bold text-gray-800">
-                      Global Reach
-                    </h3>
-                  </div>
-                  <p className="mt-2 text-gray-600">
-                    We are committed to making our technology accessible
-                    worldwide, ensuring that everyone benefits from advanced
-                    diagnostics.
-                  </p>
-                </div>
+            </Fade>
+            <Fade right duration={800} distance="30px">
+              <div className="order-1 lg:order-2">
+                <h2 className="text-sm font-bold uppercase tracking-widest text-[#3bd6c6] mb-3">
+                  Our Purpose
+                </h2>
+                <h3 className="text-3xl sm:text-4xl font-light text-slate-900 leading-tight mb-6">
+                  Building a Future of <br />
+                  <span className="font-bold">Early Detection</span>
+                </h3>
+                <p className="text-lg text-slate-500 font-light leading-relaxed mb-8">
+                  Through continuous research and technological advancement, we
+                  are committed to making early-stage disease detection the
+                  norm, not the exception, across diverse populations.
+                </p>
+                <Wave />
               </div>
-            </div>
+            </Fade>
           </div>
-        </section>
-      </Fade>
-
-      {/* <Zoom>
-              <div className="relative bg-[#f0f4f8] py-16 transition-transform duration-300 hover:scale-105">
-  <div className="absolute inset-0">
-    <img
-      className="w-full h-full object-cover"
-      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80"
-      alt="Background"
-    />
-    <div className="absolute inset-0 bg-[#3bd6c6] mix-blend-multiply" />
-  </div>
-
-  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-2 gap-5 sm:grid-cols-4">
-      {stats.map((stat) => (
-        <div
-          key={stat.label}
-          className="bg-white p-6 rounded-lg text-center shadow-md transition duration-300 transform hover:scale-105 hover:shadow-2xl"
-        >
-          <p className="text-3xl font-extrabold text-[#3bd6c6]">{stat.value}</p>
-          <p className="mt-2 text-sm font-medium text-gray-500">{stat.label}</p>
         </div>
-      ))}
-    </div>
-  </div>
-</div>
-            </Zoom> */}
+      </section>
 
-      {/* Testimonials Section */}
-      <Fade bottom duration={500}>
-        <section
-          id="testimonial"
-          className="py-16 bg-white transition-transform duration-300 hover:scale-105"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-left">
-              <h2 className="text-3xl tracking-tight text-[#3bd6c6] sm:text-3xl">
-                What Our Partners Are Saying:
-              </h2>
-              <Slider
-                {...{
-                  dots: true,
-                  infinite: true,
-                  speed: 500,
-                  slidesToShow: 1,
-                  slidesToScroll: 1,
-                  prevArrow: (
-                    <button className="absolute left-0 z-20 p-2 text-black hover:text-gray-600">
-                      <ArrowLeft className="h-6 w-6 text-black" />
-                    </button>
-                  ),
-                  nextArrow: (
-                    <button className="absolute right-0 z-20 p-2 text-black hover:text-gray-600">
-                      <ArrowRight className="h-6 w-6 text-black" />
-                    </button>
-                  ),
-                }}
-              >
-                <blockquote className="mt-4 text-lg text-gray-600 italic">
-                  “Gloport Photonix is on the cutting edge of healthcare
-                  innovation. Their focus on early detection technologies will
-                  change the way we diagnose and treat diseases worldwide.”
-                  <footer className="mt-2 text-gray-500">
-                    – Dr. A. Sharma, Chief Medical Officer
-                  </footer>
-                </blockquote>
-                <blockquote className="mt-4 text-lg text-gray-600 italic">
-                  “The technology developed by Gloport Photonix has transformed
-                  our approach to diagnostics.”
-                  <footer className="mt-2 text-gray-500">
-                    – Dr. D K Thakur{" "}
-                  </footer>
-                </blockquote>
-                <blockquote className="mt-4 text-lg text-gray-600 italic">
-                  “Their commitment to early detection is truly commendable and
-                  impactful.”
-                  <footer className="mt-2 text-gray-500">
-                    – Dr. Pavan Kumar{" "}
-                  </footer>
-                </blockquote>
+      {/* Testimonials */}
+      <section id="testimonial" className="py-24 bg-[#3bd6c6]/5">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center cursor-grab active:cursor-grabbing">
+          <Fade bottom duration={800} distance="30px">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-[#3bd6c6] mb-12">
+              Partner Insights
+            </h2>
+            <div className="px-8">
+              <Slider {...sliderSettings}>
+                {[
+                  {
+                    quote:
+                      "Gloport Photonix is on the cutting edge of healthcare innovation. Their focus on early detection technologies will change the way we diagnose and treat diseases.",
+                    author: "Dr. A. Sharma, Chief Medical Officer",
+                  },
+                  {
+                    quote:
+                      "The technology developed by Gloport Photonix has transformed our approach to diagnostics. It's a massive leap forward in patient care.",
+                    author: "Dr. D K Thakur",
+                  },
+                  {
+                    quote:
+                      "Their commitment to early detection is truly commendable and highly impactful for the medical community.",
+                    author: "Dr. Pavan Kumar",
+                  },
+                ].map((testimonial, idx) => (
+                  <div key={idx} className="focus:outline-none py-8">
+                    <p className="text-2xl sm:text-3xl font-light text-slate-800 leading-relaxed italic mb-8">
+                      "{testimonial.quote}"
+                    </p>
+                    <p className="text-sm font-bold tracking-wide text-[#3bd6c6] uppercase">
+                      — {testimonial.author}
+                    </p>
+                  </div>
+                ))}
               </Slider>
             </div>
-          </div>
-        </section>
-      </Fade>
-
-      <Fade bottom duration={500}>
-        <section
-          id="team"
-          className="relative bg-[#3bd6c6] transition-transform duration-300 hover:scale-105"
-        >
-          <div className="absolute inset-0">
-            <img
-              className="w-full h-full object-cover"
-              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80"
-              alt="Team"
-            />
-            <div className="absolute inset-0 bg-[#3bd6c6] mix-blend-multiply" />
-          </div>
-          <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Meet Our Team
-            </h1>
-            <p className="mt-6 text-xl text-white max-w-3xl">
-              Get to know the talented individuals who make our company great.
-              We're proud of our diverse team and their expertise.
-            </p>
-          </div>
-        </section>
-      </Fade>
-
-      <Fade bottom cascade duration={500}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 p-6 bg-white">
-          {/* 1️⃣ MR. ABHIJEET THAKUR */}
-          <div
-            className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
-            style={{
-              backgroundImage:
-                "url('https://i.postimg.cc/fRVGPkr7/PHOTO-2019-07-24-10-01-41-jpg.jpg')",
-            }}
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
-            <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">MR. ABHIJEET THAKUR</h3>
-              <p className="text-2xl font-semibold">FOUNDER & CEO</p>
-            </div>
-            <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
-              <p className="text-lg text-center">
-                With a career spanning over 28 years, Abhijeet has excelled
-                across diverse sectors, including IT, Banking, Cloud, AI,
-                Insurance, Electronics, and Electric Vehicle (EV) subsystems.
-              </p>
-            </div>
-          </div>
-
-          {/* 3️⃣ MR. SANJAY SINGH */}
-          <div
-            className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
-            style={{
-              backgroundImage:
-                "url('https://i.postimg.cc/LXVm1G7b/Whats-App-Image-2025-03-04-at-23-07-35.jpg')",
-            }}
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
-            <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">MR. SANJAY SINGH</h3>
-              <p className="text-2xl font-semibold">FOUNDER & CBO</p>
-            </div>
-            <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
-              <p className="text-lg text-center">
-                He is a seasoned leader with over 27 years of experience in
-                business development, strategic marketing, and operational
-                growth across India & abroad.
-              </p>
-            </div>
-          </div>
-
-          {/* 2️⃣ DR. ALOK VERMA */}
-          <div
-            className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
-            style={{
-              backgroundImage:
-                "url('https://i.postimg.cc/bw5YrmtD/DMC8618.jpg')",
-            }}
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-80 transition duration-500"></div>
-            <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">DR. VARUN JEOTI</h3>
-              <p className="text-2xl font-semibold">CTO</p>
-            </div>
-            <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
-              <p className="text-lg text-center">
-                Experience over 45 years as an applied physicist and
-                translational technologist, specializing in biosensor innovation
-                and photonics-enabled diagnostics, with leadership roles across
-                Europe and Asia.
-              </p>
-            </div>
-          </div>
-
-          {/* 4️⃣ DR. KHALID KHAN */}
-          <div
-            className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
-            style={{
-              backgroundImage:
-                "url('https://i.postimg.cc/W1TXPLby/Whats-App-Image-2025-01-01-at-15-02-37.jpg')",
-            }}
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-80 transition duration-500"></div>
-            <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">DR. KHALID KHAN</h3>
-              <p className="text-2xl font-semibold">FOUNDER & CHAIRMAN</p>
-            </div>
-            <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
-              <p className="text-lg text-center">
-                ⁠Dr. Khalid Khan is a reputed entrepreneur & philanthropist with
-                over four decades of experience of creating value across India &
-                abroad. He is Founder & Chairman of the Gloport group of
-                companies.
-              </p>
-            </div>
-          </div>
-
-          {/* 5️⃣ MRS. BUSHRA KHAN */}
-          <div
-            className="group relative bg-cover bg-center h-[350px] rounded-lg overflow-hidden shadow-lg"
-            style={{
-              backgroundImage:
-                "url('https://i.postimg.cc/52gp47X2/Whats-App-Image-2025-01-01-at-15-02-37-1.jpg')",
-            }}
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-80 transition duration-500"></div>
-            <div className="absolute inset-0 flex flex-col justify-between p-6 text-white opacity-100 group-hover:opacity-0 transition duration-500">
-              <h3 className="text-lg font-bold">MRS. BUSHRA KHAN</h3>
-              <p className="text-2xl font-semibold">FOUNDER & CFO</p>
-            </div>
-            <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-500">
-              <p className="text-lg text-center">
-                With over 12 years of distinguished experience in financial
-                management, she has established herself as a powerhouse in
-                financial strategy, investment control, and operational
-                excellence.
-              </p>
-            </div>
-          </div>
+          </Fade>
         </div>
-      </Fade>
+      </section>
 
-      <Fade bottom duration={500}>
-        <div className="bg-[#f0f4f8] transition-transform duration-300 hover:scale-105">
-          <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-            <h2 className="text-3xl font-extrabold tracking-tight text-[#3bd6c6] sm:text-4xl">
-              <span className="block">Want to join our team?</span>
-              <span className="block text-black">Contact Us</span>
-            </h2>
-            <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-              <div className="inline-flex rounded-md shadow">
-                <a
-                  href="https://forms.gle/C9hvwdtz2QcqPTVL7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-[#3bd6c6] bg-white hover:bg-[#2c554f] transition duration-300"
+      {/* Team Section - Interactive Reveal Cards */}
+      <section id="team" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Fade bottom duration={800} distance="30px">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-[#3bd6c6] mb-3">
+                Leadership
+              </h2>
+              <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">
+                Meet the Experts
+              </h3>
+            </div>
+          </Fade>
+
+          <Fade bottom cascade duration={800} distance="30px">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  name: "DR. KHALID KHAN",
+                  role: "FOUNDER & CHAIRMAN",
+                  img: "https://i.postimg.cc/W1TXPLby/Whats-App-Image-2025-01-01-at-15-02-37.jpg",
+                  desc: "Reputed entrepreneur & philanthropist with over four decades of experience.",
+                },
+                {
+                  name: "MR. ABHIJEET THAKUR",
+                  role: "FOUNDER & CEO",
+                  img: "https://i.postimg.cc/fRVGPkr7/PHOTO-2019-07-24-10-01-41-jpg.jpg",
+                  desc: "28+ years of excellence across IT, Cloud, AI, and Electronic subsystems.",
+                },
+                {
+                  name: "MR. SANJAY SINGH",
+                  role: "FOUNDER & CBO",
+                  img: "https://i.postimg.cc/LXVm1G7b/Whats-App-Image-2025-03-04-at-23-07-35.jpg",
+                  desc: "Seasoned leader with 27+ years in strategic marketing and operational growth.",
+                },
+                {
+                  name: "DR. VARUN JEOTI",
+                  role: "CTO",
+                  img: "https://i.postimg.cc/bw5YrmtD/DMC8618.jpg",
+                  desc: "Applied physicist specializing in biosensor innovation and photonics.",
+                },
+                {
+                  name: "MRS. BUSHRA KHAN",
+                  role: "FOUNDER & CFO",
+                  img: "https://i.postimg.cc/52gp47X2/Whats-App-Image-2025-01-01-at-15-02-37-1.jpg",
+                  desc: "Powerhouse in financial strategy, investment control, and operational excellence.",
+                },
+              ].map((member, idx) => (
+                <div
+                  key={idx}
+                  className="group relative h-[420px] rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer"
                 >
-                  Contact Us
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </div>
+                  <div className="absolute inset-0">
+                    <img
+                      src={member.img}
+                      alt={member.name}
+                      className="w-full h-full object-cover scale-100 group-hover:scale-110 transition duration-700 ease-out"
+                    />
+                  </div>
+                  {/* Interactive Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-70 group-hover:opacity-90 transition duration-500"></div>
+
+                  <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                    <h3 className="text-xl font-bold text-white mb-1">
+                      {member.name}
+                    </h3>
+                    <p className="text-sm font-medium text-[#3bd6c6] mb-4 tracking-wide">
+                      {member.role}
+                    </p>
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                      <p className="text-slate-300 font-light text-sm leading-relaxed border-t border-white/20 pt-4">
+                        {member.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
+          </Fade>
         </div>
-      </Fade>
+      </section>
 
       <Career />
 
-      <Fade bottom duration={500}>
-        <div className="relative bg-[#3bd6c6] transition-transform duration-300 hover:scale-105">
-          <div className="absolute inset-0">
-            <img
-              className="w-full h-full object-cover"
-              src="https://images.unsplash.com/photo-1522071901873-411886a10004?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80"
-              alt="Contact Us"
-            />
-            <div className="absolute inset-0 bg-[#3bd6c6] mix-blend-multiply" />
-          </div>
-          <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Get in Touch
-            </h1>
-            <p className="mt-6 text-xl text-[#ffffff] max-w-3xl">
-              We would love to hear from you! Reach out to us for any inquiries.
-            </p>
-          </div>
-        </div>
-      </Fade>
+      {/* Unified Contact Section with Interactive Elements */}
+      <section
+        id="contact-us"
+        className="bg-slate-50 border-t border-slate-200 py-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Fade bottom duration={800} distance="30px">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">
+                Let's Shape the Future
+              </h2>
+              <p className="text-lg text-slate-500 font-light mb-8">
+                Whether you're looking to partner with us, inquire about our
+                technology, or join our team, we're ready to connect.
+              </p>
+            </div>
 
-      <Fade bottom cascade duration={500}>
-        <section
-          id="contact-us"
-          className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 transition-transform duration-300"
-        >
-          <div className="space-y-12">
-            {/* Section Header */}
-            <h2 className="text-3xl tracking-tight text-[#3bd6c6] sm:text-3xl text-left">
-              Contact Details
-            </h2>
-
-            {/* Three-Column Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Corporate Office */}
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 flex flex-col justify-between h-full">
-                <MapPin className="h-6 w-6 text-[#3bd6c6]" />
-                <h3 className="text-lg font-bold text-gray-900">
-                  Corporate Office
-                </h3>
-                <p className="text-gray-600">
-                  <span className="text-black">
-                    Gloport Photonix Innovations Pvt Ltd
-                  </span>
-                  <br />
-                  21st Floor, 2103 - 2106, Kamdhenu 23 West, TTC Industrial
-                  Area, Pawne, Thane Belapur Road, Navi Mumbai, Maharashtra,
-                  400710
-                </p>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+              {/* Location Card */}
+              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex items-start space-x-4 hover:shadow-lg transition-shadow duration-300">
+                <MapPin className="h-6 w-6 text-[#3bd6c6] flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    Corporate Office
+                  </h3>
+                  <p className="text-slate-500 font-light text-sm leading-relaxed">
+                    <span className="font-medium text-slate-700">
+                      Gloport Photonix Innovations
+                    </span>
+                    <br />
+                    21st Floor, 2103 - 2106, Kamdhenu 23 West, TTC Industrial
+                    Area, Pawne, Navi Mumbai, 400710
+                  </p>
+                </div>
               </div>
 
-              {/* Email */}
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 flex flex-col items-left h-full">
-                <Mail className="h-6 w-6 text-[#3bd6c6] mb-1" />
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Email</h3>
-                <p className="text-gray-900 text-left">
-                  info@gloportphotonix.com
-                  <br />
-                  career@gloportphotonix.com
-                </p>
+              {/* Email Card (Interactive Copy) */}
+              <div
+                onClick={() => handleCopy("info@gloportphotonix.com", "email")}
+                className="group bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex items-start space-x-4 hover:shadow-lg hover:border-[#3bd6c6]/50 transition-all duration-300 cursor-pointer relative"
+              >
+                <Mail className="h-6 w-6 text-[#3bd6c6] flex-shrink-0 mt-1" />
+                <div className="w-full">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    Email Us
+                  </h3>
+                  <p className="text-slate-500 font-light text-sm">
+                    info@gloportphotonix.com
+                  </p>
+                </div>
+                {/* Copy Feedback */}
+                <div className="absolute right-6 top-8 text-slate-300 group-hover:text-[#3bd6c6] transition-colors">
+                  {copiedStatus === "email" ? (
+                    <CheckCircle2 className="h-5 w-5 text-green-500" />
+                  ) : (
+                    <Copy className="h-5 w-5" />
+                  )}
+                </div>
               </div>
 
-              {/* Phone */}
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition duration-300 flex flex-col items-left h-full">
-                <Phone className="h-6 w-6 text-[#3bd6c6] mb-1" />
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Phone</h3>
-                <p className="text-gray-900 text-left">+91 98333 96290</p>
+              {/* Phone Card (Interactive Copy) */}
+              <div
+                onClick={() => handleCopy("+91 98333 96290", "phone")}
+                className="group bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex items-start space-x-4 hover:shadow-lg hover:border-[#3bd6c6]/50 transition-all duration-300 cursor-pointer relative"
+              >
+                <Phone className="h-6 w-6 text-[#3bd6c6] flex-shrink-0 mt-1" />
+                <div className="w-full">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    Call Us
+                  </h3>
+                  <p className="text-slate-500 font-light text-sm">
+                    +91 98333 96290
+                  </p>
+                </div>
+                {/* Copy Feedback */}
+                <div className="absolute right-6 top-8 text-slate-300 group-hover:text-[#3bd6c6] transition-colors">
+                  {copiedStatus === "phone" ? (
+                    <CheckCircle2 className="h-5 w-5 text-green-500" />
+                  ) : (
+                    <Copy className="h-5 w-5" />
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-      </Fade>
 
-      {/* Map Section */}
-      <Fade bottom duration={500}>
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 transition-transform duration-300 hover:scale-105">
-          <h2 className="text-3xl tracking-tight text-[#3bd6c6] sm:text-3xl">
-            Our Location
-          </h2>
-          <div className="mt-4">
-            <div
-              className="relative w-full"
-              style={{ paddingBottom: "56.25%", height: 0 }}
-            >
+            {/* Interactive Map Wrapper */}
+            <div className="w-full h-[400px] rounded-2xl overflow-hidden shadow-sm border border-slate-100 relative group">
+              <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none z-10"></div>
               <iframe
-                className="absolute top-0 left-0 w-full h-full"
+                className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700"
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15081.179657558912!2d73.0223884!3d19.0947139!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c1533508abb7%3A0x2a007395760b59ce!2sGloport%20Photonix!5e0!3m2!1sen!2sin!4v1735132689648!5m2!1sen!2sin"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 style={{ border: 0 }}
+                title="Company Location"
               ></iframe>
             </div>
-          </div>
+          </Fade>
         </div>
-      </Fade>
+      </section>
 
-      {/* Call to Action Section */}
-      <Fade bottom duration={500}>
-        <div className="relative bg-[#3bd6c6] transition-transform duration-300 hover:scale-105">
-          <div className="absolute inset-0">
-            <img
-              className="w-full h-full object-cover"
-              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80"
-              alt="Background"
-            />
-            <div className="absolute inset-0 bg-[#3bd6c6] mix-blend-multiply" />
-          </div>
-          <div className="relative max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Ready to <span className="text-white">Learn More?</span>
-              </h2>
-              <p className="mt-4 text-lg leading-6 text-white">
-                We’re excited to partner with healthcare providers, researchers,
-                and innovators. Explore our technology, contact us for
-                collaboration opportunities, or learn how you can benefit from
-                our solutions.
-              </p>
-              <div className="mt-10 flex justify-center gap-4">
-                <Link
-                  to="https://forms.gle/C9hvwdtz2QcqPTVL7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-[#3bd6c6] bg-white hover:bg-[#2c554f] transition duration-300"
-                >
-                  Contact Us
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Fade>
-
-      {/* Scroll to Top Button */}
+      {/* Scroll to Top with Scroll Tracking */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-5 right-5 bg-[#3bd6c6] text-white p-3 rounded-full shadow-lg transition duration-300 hover:bg-[#2c554f]"
+        className={`fixed bottom-8 right-8 z-50 bg-slate-900 text-white p-4 rounded-full shadow-xl hover:bg-[#3bd6c6] hover:-translate-y-1 transition-all duration-300 ${scrollY > 500 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"}`}
         aria-label="Scroll to top"
       >
-        <ArrowUp className="h-6 w-6" />
+        <ArrowUp className="h-5 w-5" />
       </button>
-    </>
+
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+        @keyframes scrolldown {
+          0% { transform: translateY(-100%); }
+          100% { transform: translateY(200%); }
+        }
+      `,
+        }}
+      />
+    </div>
   );
 }
