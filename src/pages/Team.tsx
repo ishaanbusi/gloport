@@ -3,12 +3,13 @@ import { Github, Linkedin, Twitter, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Fade from "react-reveal/Fade";
 
+// Team sequenced: Abhijeet, Sanjay, Varun, Bushra, Dr. Khalid
 const team = [
   {
-    name: "Alok Verma",
-    role: "CEO",
-    image: "https://avatar.iran.liara.run/public/boy?username=Ash",
-    bio: "Over 15 years of experience in technology and business leadership.",
+    name: "MR. ABHIJEET THAKUR",
+    role: "FOUNDER & CEO",
+    image: "https://i.postimg.cc/fRVGPkr7/PHOTO-2019-07-24-10-01-41-jpg.jpg",
+    bio: "With a career spanning over 28 years, Abhijeet has excelled across diverse sectors, including IT, Banking, Cloud, AI, Insurance, Electronics, and Electric Vehicle (EV) subsystems.",
     social: {
       twitter: "#",
       linkedin: "#",
@@ -16,10 +17,11 @@ const team = [
     },
   },
   {
-    name: "Abhijeet Thakur",
-    role: "CTO",
-    image: "https://avatar.iran.liara.run/public/boy?username=Ash",
-    bio: "Expert in cloud architecture and digital transformation.",
+    name: "MR. SANJAY SINGH",
+    role: "FOUNDER & CBO",
+    image:
+      "https://i.postimg.cc/LXVm1G7b/Whats-App-Image-2025-03-04-at-23-07-35.jpg",
+    bio: "He is a seasoned leader with over 27 years of experience in business development, strategic marketing, and operational growth across India & abroad.",
     social: {
       twitter: "#",
       linkedin: "#",
@@ -27,10 +29,10 @@ const team = [
     },
   },
   {
-    name: "Sanjay Singh",
-    role: "COO",
-    image: "https://avatar.iran.liara.run/public/boy?username=Ash",
-    bio: "Passionate about creating beautiful and intuitive user experiences.",
+    name: "DR. VARUN JEOTI",
+    role: "CO-FOUNDER & CTO",
+    image: "https://i.postimg.cc/bw5YrmtD/DMC8618.jpg",
+    bio: "Experience over 45 years as an applied physicist and translational technologist, specializing in biosensor innovation and photonics-enabled diagnostics, with leadership roles across Europe and Asia.",
     social: {
       twitter: "#",
       linkedin: "#",
@@ -38,10 +40,23 @@ const team = [
     },
   },
   {
-    name: "Jayesh",
-    role: "Hardware Engineer",
-    image: "https://avatar.iran.liara.run/public/boy?username=Ash",
-    bio: "Full-stack developer with expertise in modern web technologies.",
+    name: "MRS. BUSHRA KHAN",
+    role: "FOUNDER & CFO",
+    image:
+      "https://i.postimg.cc/52gp47X2/Whats-App-Image-2025-01-01-at-15-02-37-1.jpg",
+    bio: "With over 12 years of distinguished experience in financial management, she has established herself as a powerhouse in financial strategy, investment control, and operational excellence.",
+    social: {
+      twitter: "#",
+      linkedin: "#",
+      github: "#",
+    },
+  },
+  {
+    name: "DR. KHALID KHAN",
+    role: "FOUNDER & CHAIRMAN",
+    image:
+      "https://i.postimg.cc/W1TXPLby/Whats-App-Image-2025-01-01-at-15-02-37.jpg",
+    bio: "Dr. Khalid Khan is a reputed entrepreneur & philanthropist with over four decades of experience creating value across India & abroad. He is Founder & Chairman of the Gloport group of companies.",
     social: {
       twitter: "#",
       linkedin: "#",
@@ -53,7 +68,6 @@ const team = [
 export default function Team() {
   const [scrollY, setScrollY] = useState(0);
 
-  // Parallax effect for the hero section
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -86,74 +100,78 @@ export default function Team() {
             </h2>
             <p className="mt-6 text-xl text-slate-300 max-w-2xl font-light leading-relaxed">
               Get to know the talented individuals who make our company great.
-              We're proud of our diverse team and their deep industry expertise.
+              We're proud of our diverse leadership team and their deep industry
+              expertise.
             </p>
           </Fade>
         </div>
       </section>
 
-      {/* Interactive Team Grid */}
+      {/* Executive Team Grid - Properly Wrapped for Side-by-Side Flexbox */}
       <section className="py-24 bg-white relative z-20 -mt-10 rounded-t-[3rem]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Flexbox container for side-by-side alignment */}
+          <div className="flex flex-wrap justify-center gap-8">
             {team.map((member, idx) => (
-              <Fade
-                bottom
-                duration={800}
-                delay={idx * 150}
+              /* Structural Wrapper - This forces the cards into columns */
+              <div
                 key={member.name}
-                distance="30px"
+                className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] max-w-[380px]"
               >
-                <div className="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
-                  {/* Image Container */}
-                  <div className="relative aspect-[4/5] overflow-hidden bg-slate-100">
-                    <img
-                      className="w-full h-full object-cover scale-100 group-hover:scale-105 grayscale group-hover:grayscale-0 transition-all duration-700 ease-out"
-                      src={member.image}
-                      alt={member.name}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </div>
+                {/* Animation Wrapper */}
+                <Fade bottom duration={800} delay={idx * 150} distance="30px">
+                  {/* Card Content */}
+                  <div className="group bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full text-center">
+                    {/* Fixed Size Circular Image */}
+                    <div className="w-40 h-40 mx-auto rounded-full overflow-hidden mb-6 ring-4 ring-slate-50 shadow-md flex-shrink-0 relative">
+                      <img
+                        className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out object-top"
+                        src={member.image}
+                        alt={member.name}
+                      />
+                    </div>
 
-                  {/* Content Container */}
-                  <div className="p-8 flex flex-col flex-grow bg-white relative z-10">
-                    <h3 className="text-xl font-bold text-slate-900 mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm font-bold tracking-widest text-[#3bd6c6] uppercase mb-4">
-                      {member.role}
-                    </p>
-                    <p className="text-slate-500 font-light text-sm leading-relaxed mb-6 flex-grow">
-                      {member.bio}
-                    </p>
+                    {/* Text Content */}
+                    <div className="flex flex-col flex-grow">
+                      <h3 className="text-xl font-bold text-slate-900 mb-1">
+                        {member.name}
+                      </h3>
+                      <p className="text-xs font-bold tracking-widest text-[#3bd6c6] uppercase mb-4">
+                        {member.role}
+                      </p>
 
-                    {/* Social Links */}
-                    <div className="flex space-x-4 pt-4 border-t border-slate-100 mt-auto">
-                      <a
-                        href={member.social.twitter}
-                        className="text-slate-400 hover:text-[#3bd6c6] hover:-translate-y-1 transition-all duration-300"
-                        aria-label="Twitter"
-                      >
-                        <Twitter className="h-5 w-5" />
-                      </a>
-                      <a
-                        href={member.social.linkedin}
-                        className="text-slate-400 hover:text-[#3bd6c6] hover:-translate-y-1 transition-all duration-300"
-                        aria-label="LinkedIn"
-                      >
-                        <Linkedin className="h-5 w-5" />
-                      </a>
-                      <a
-                        href={member.social.github}
-                        className="text-slate-400 hover:text-[#3bd6c6] hover:-translate-y-1 transition-all duration-300"
-                        aria-label="GitHub"
-                      >
-                        <Github className="h-5 w-5" />
-                      </a>
+                      <p className="text-slate-500 font-light text-sm leading-relaxed mb-8 flex-grow">
+                        {member.bio}
+                      </p>
+
+                      {/* Social Links */}
+                      <div className="flex justify-center space-x-5 pt-6 border-t border-slate-100 mt-auto">
+                        <a
+                          href={member.social.twitter}
+                          className="text-slate-400 hover:text-[#3bd6c6] hover:-translate-y-1 transition-all duration-300"
+                          aria-label="Twitter"
+                        >
+                          <Twitter className="h-5 w-5" />
+                        </a>
+                        <a
+                          href={member.social.linkedin}
+                          className="text-slate-400 hover:text-[#3bd6c6] hover:-translate-y-1 transition-all duration-300"
+                          aria-label="LinkedIn"
+                        >
+                          <Linkedin className="h-5 w-5" />
+                        </a>
+                        <a
+                          href={member.social.github}
+                          className="text-slate-400 hover:text-[#3bd6c6] hover:-translate-y-1 transition-all duration-300"
+                          aria-label="GitHub"
+                        >
+                          <Github className="h-5 w-5" />
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Fade>
+                </Fade>
+              </div>
             ))}
           </div>
         </div>
@@ -173,7 +191,7 @@ export default function Team() {
             </p>
             <Link
               to="/career"
-              className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-full text-white bg-slate-900 hover:bg-[#3bd6c6] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 group"
+              className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-full text-white bg-slate-900 hover:bg-[#3bd6c6] transition-all duration-300 shadow-[0_0_20px_rgba(59,214,198,0.3)] hover:shadow-[0_0_30px_rgba(59,214,198,0.5)] hover:-translate-y-1 group"
             >
               View Open Careers
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

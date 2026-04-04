@@ -430,14 +430,9 @@ export default function Home() {
           </Fade>
 
           <Fade bottom cascade duration={800} distance="30px">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Replaced grid with flex wrap and justify-center for perfect centering of orphans */}
+            <div className="flex flex-wrap justify-center gap-8">
               {[
-                {
-                  name: "DR. KHALID KHAN",
-                  role: "FOUNDER & CHAIRMAN",
-                  img: "https://i.postimg.cc/W1TXPLby/Whats-App-Image-2025-01-01-at-15-02-37.jpg",
-                  desc: "Reputed entrepreneur & philanthropist with over four decades of experience.",
-                },
                 {
                   name: "MR. ABHIJEET THAKUR",
                   role: "FOUNDER & CEO",
@@ -452,9 +447,9 @@ export default function Home() {
                 },
                 {
                   name: "DR. VARUN JEOTI",
-                  role: "CTO",
+                  role: "CO-FOUNDER & CTO",
                   img: "https://i.postimg.cc/bw5YrmtD/DMC8618.jpg",
-                  desc: "Applied physicist specializing in biosensor innovation and photonics.",
+                  desc: "40 years of experience as an applied physicist specializing in biosensor innovation and photonics.",
                 },
                 {
                   name: "MRS. BUSHRA KHAN",
@@ -462,16 +457,23 @@ export default function Home() {
                   img: "https://i.postimg.cc/52gp47X2/Whats-App-Image-2025-01-01-at-15-02-37-1.jpg",
                   desc: "Powerhouse in financial strategy, investment control, and operational excellence.",
                 },
+                {
+                  name: "DR. KHALID KHAN",
+                  role: "FOUNDER & CHAIRMAN",
+                  img: "https://i.postimg.cc/W1TXPLby/Whats-App-Image-2025-01-01-at-15-02-37.jpg",
+                  desc: "Reputed entrepreneur & philanthropist with over four decades of experience.",
+                },
               ].map((member, idx) => (
                 <div
                   key={idx}
-                  className="group relative h-[420px] rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer"
+                  // Force width to simulate a 3-column grid, but allow flexbox to center the bottom row
+                  className="group relative h-[420px] w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer"
                 >
                   <div className="absolute inset-0">
                     <img
                       src={member.img}
                       alt={member.name}
-                      className="w-full h-full object-cover scale-100 group-hover:scale-110 transition duration-700 ease-out"
+                      className="w-full h-full object-cover scale-100 group-hover:scale-110 transition duration-700 ease-out object-top"
                     />
                   </div>
                   {/* Interactive Gradient Overlay */}
