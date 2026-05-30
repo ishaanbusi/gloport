@@ -53,22 +53,58 @@ export default function ContactUs() {
           </div>
 
           {/* Map Section */}
-          <div className="mt-12">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-indigo-600">
-              Our Location
-            </h2>
-            <div className="mt-4">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.509009235095!2d73.7153778!3d18.596161699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bbbaf62357d1%3A0x9093b6d9c4cb554a!2sBitance%20Labs!5e0!3m2!1sen!2sin!4v1734503341303!5m2!1sen!2sin"
-                width={800}
-                height={600}
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+          <section className="mt-20">
+            <div className="text-center mb-10">
+              <span className="inline-flex items-center rounded-full bg-indigo-100 px-4 py-1 text-sm font-medium text-indigo-700">
+                Visit Us
+              </span>
+
+              <h2 className="mt-4 text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
+                Our Location
+              </h2>
+
+              <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+                Visit our office and meet our team. We're always happy to
+                discuss new ideas, collaborations, and opportunities.
+              </p>
             </div>
-          </div>
+
+            <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl">
+              <div className="relative w-full h-[350px] md:h-[500px]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.261835594617!2d73.01434067387554!3d19.096165951341828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c1533508abb7%3A0x2a007395760b59ce!2sGloport%20Photonix!5e0!3m2!1sen!2sin!4v1780130085103!5m2!1sen!2sin"
+                  className="absolute inset-0 h-full w-full"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+
+              <div className="p-6 md:p-8 bg-gradient-to-r from-indigo-50 to-white">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900">
+                      Gloport Photonix Innovations Pvt Ltd
+                    </h3>
+                    <p className="mt-2 text-gray-600">
+                      Schedule a visit or reach out to our team for business
+                      inquiries.
+                    </p>
+                  </div>
+
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-6 py-3 text-white font-medium hover:bg-indigo-700 transition"
+                  >
+                    Get Directions
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
